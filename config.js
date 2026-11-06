@@ -1,12 +1,12 @@
 /* MyTask shared configuration — edit values below before deployment. */
 window.MYTASK_CONFIG = Object.freeze({
   firebase: {
-    apiKey: 'REPLACE_FIREBASE_API_KEY',
-    authDomain: 'REPLACE_PROJECT_ID.firebaseapp.com',
-    projectId: 'REPLACE_PROJECT_ID',
-    appId: 'REPLACE_FIREBASE_APP_ID'
+    apiKey: 'AIzaSyBIsLSAf35f63zWjkbiSY8NmrbXVVPWBWU',
+    authDomain: 'mytask-60f59.firebaseapp.com',
+    projectId: 'mytask-60f59',
+    appId: '1:900912234219:web:843e99a1fcb5764a15c8aeD'
   },
-  gasUrl: 'REPLACE_APPS_SCRIPT_WEB_APP_EXEC_URL',
+  gasUrl: 'https://script.google.com/macros/s/AKfycbyvXJKv7oK8h-xI-fGpBoB0G2iC_sIFmQvhfoCFw2GqNMNW5-UsvKe8D39Gxb33NVJC/exec',
   apiTimeoutMs: 35000,
   cacheVersion: 'mytask-v1',
   appName: 'MyTask'
