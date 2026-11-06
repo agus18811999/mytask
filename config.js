@@ -32,7 +32,10 @@ window.MyTaskAPI = (() => {
     if (!packet || packet.protocol !== 'MYTASK_BRIDGE_V1' || typeof packet.requestId !== 'string') return;
     const entry = pending.get(packet.requestId);
     if (!entry) return;
-    if (event.source !== entry.iframe.contentWindow) return;
+    // Apps Script HTML Service renders its result inside nested Google iframes.
+    // Its message source will NOT be the outer form-target iframe. Authenticate
+    // the reply with the pending request ID, a separate random nonce, and origin.
+    if (packet.nonce !== entry.nonce) return;
     entry.finish(packet.response);
   });
   const error = (message, code = 'REQUEST_FAILED') => Object.assign(new Error(message), {code});
@@ -44,7 +47,8 @@ window.MyTaskAPI = (() => {
     }
     const user = auth.currentUser;
     const token = await user.getIdToken();
-    const requestId = `${Date.now().toString(36)}-${(++counter).toString(36)}-${Math.random().toString(36).slice(2,12)}`;
+    const requestId = `${Date.now().toString(36)}-${(++counter).toString(36)}-${crypto.randomUUID()}`;
+    const nonce = crypto.randomUUID();
     return new Promise((resolve, reject) => {
       const iframe = document.createElement('iframe');
       iframe.name = `mytask_rpc_${counter}`;
@@ -58,7 +62,7 @@ window.MyTaskAPI = (() => {
       form.target = iframe.name;
       form.style.display = 'none';
       const entries = {
-        protocol: 'MYTASK_BRIDGE_V1', requestId, operation,
+        protocol: 'MYTASK_BRIDGE_V1', requestId, operation, nonce,
         payload: JSON.stringify(payload ?? {}), token, replyOrigin: location.origin
       };
       for (const [name, value] of Object.entries(entries)) {
@@ -77,7 +81,7 @@ window.MyTaskAPI = (() => {
       };
       const timer = setTimeout(() => finish({success:false,error:{code:'TIMEOUT',message:'Server belum merespons. Periksa koneksi dan coba lagi.'}}), cfg.apiTimeoutMs);
       document.body.append(iframe, form);
-      pending.set(requestId, {iframe, finish});
+      pending.set(requestId, {iframe, finish, nonce});
       form.submit();
     });
   }
