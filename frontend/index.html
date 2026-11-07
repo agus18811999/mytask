@@ -1,65 +1,566 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FF4F9A"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23FF358C'/%3E%3Cstop offset='1' stop-color='%23FF83BB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23a)'/%3E%3Cpath d='M32 10 37.8 26.2 54 32 37.8 37.8 32 54 26.2 37.8 10 32 26.2 26.2Z' fill='white'/%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://www.gstatic.com" crossorigin><title>Masuk & Daftar — MyTask</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#242235;background:#fff6fa}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% 10%,#ffd3e5 0,transparent 34%),radial-gradient(circle at 95% 85%,#ffe0ee 0,transparent 37%),#fff9fc}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}.shell{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;max-width:1500px;margin:auto;padding:26px;gap:26px}.showcase{border-radius:36px;background:linear-gradient(145deg,#ff4f9a,#ed62a4 56%,#ff97c4);color:#fff;padding:clamp(30px,5vw,80px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.showcase:after{content:'';width:430px;height:430px;border:90px solid #ffffff25;border-radius:50%;position:absolute;bottom:-170px;right:-170px}.brand{font-size:26px;font-weight:800;letter-spacing:-1px;display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;background:#fff;color:#f3408e;width:42px;height:42px;border-radius:14px}.showcase h1{font-size:clamp(38px,4.4vw,66px);line-height:1.13;letter-spacing:-2.5px;margin:50px 0 18px}.showcase p{line-height:1.8;max-width:480px;color:#fffefee0}.mini{background:#ffffff25;backdrop-filter:blur(12px);border:1px solid #ffffff50;border-radius:24px;padding:24px;max-width:440px}.main{display:grid;place-items:center}.panel{width:min(440px,100%);padding:30px 10px}.eyebrow{color:#ef4a92;font-weight:800;letter-spacing:.12em;font-size:11px}h2{font-size:36px;letter-spacing:-1.5px;margin:12px 0}small,.muted{color:#807b8b;line-height:1.6}.switch{background:#fff;border:1px solid #f1e3e9;padding:5px;display:flex;border-radius:16px;margin:27px 0;gap:3px}.switch button{flex:1;padding:11px;border:0;background:transparent;color:#777180;border-radius:12px;font-size:13px;font-weight:700}.switch button.active{background:#ffe5f0;color:#dd307e}.field{margin:18px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:8px}.field input{width:100%;border:1px solid #eedde5;background:#fff;border-radius:14px;padding:15px;outline:0;transition:.2s}.field input:focus{border-color:#ff4f9a;box-shadow:0 0 0 4px #ff4f9a20}.password{position:relative}.password input{padding-right:75px}.eye{position:absolute;right:10px;top:8px;border:0;background:#fff1f7;border-radius:10px;color:#d53383;padding:8px;font-size:12px}.primary{width:100%;padding:16px;border:0;border-radius:15px;background:linear-gradient(100deg,#f63e92,#ff80b7);color:white;font-weight:800;box-shadow:0 12px 24px #f54c9440;margin-top:14px}.link{background:none;border:0;color:#e8418d;font-weight:800;padding:5px}#notice{min-height:25px;font-size:12px;margin:12px 0;color:#ae2d64}#notice.ok{color:#208963}footer{font-size:11px;color:#aaa;text-align:center;margin:30px 0}@media(max-width:800px){.shell{grid-template-columns:1fr;padding:14px}.showcase{min-height:175px;padding:24px;border-radius:24px}.showcase h1{font-size:29px;margin:16px 0 0}.showcase p,.showcase .mini,.showcase .foot{display:none}.panel{padding:18px 8px}}
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FF4F9A">
+  <meta name="description" content="MyTask — ruang produktivitas personal untuk mengelola tugas, proyek, dan fokus dengan lebih terarah.">
+  <title>Masuk, Daftar & Pulihkan Akun — MyTask</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23FF358C'/%3E%3Cstop offset='1' stop-color='%23FF83BB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23a)'/%3E%3Cpath d='M32 10 37.8 26.2 54 32 37.8 37.8 32 54 26.2 37.8 10 32 26.2 26.2Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{font-family:'Plus Jakarta Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#292335;background:#fffafb;--pink:#ff4f9a;--pink-deep:#df287d;--pink-soft:#fff0f7;--line:#f1dfe8;--dark:#292335;--muted:#857b8b;--ring:0 0 0 4px #ff4f9a22}
+    *{box-sizing:border-box}html{min-width:320px}body{margin:0;min-height:100vh;min-height:100dvh;overflow-x:clip;background:#fffafb}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.72}button:focus-visible,input:focus-visible{outline:none;box-shadow:var(--ring)}[hidden]{display:none!important}
+    .shell{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);min-height:100dvh;max-width:1900px;margin:auto;align-items:start}
+    .art-panel{height:100vh;height:100dvh;min-height:610px;max-height:1200px;position:sticky;top:0;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(34px,4.4vw,78px);color:white;background:linear-gradient(152deg,#e82d79 0%,#fb4a96 39%,#ff70ad 68%,#ffa2c8 100%)}
+    .art-panel:before{content:'';position:absolute;z-index:-1;width:108%;aspect-ratio:1;border-radius:50%;border:1px solid #ffffff47;box-shadow:0 0 0 72px #ffffff0a,0 0 0 152px #ffffff0a,0 0 0 248px #ffffff0a;right:-53%;top:-47%;pointer-events:none}
+    .art-panel:after{content:'';position:absolute;z-index:-1;width:110%;height:66%;bottom:-45%;left:-38%;background:radial-gradient(ellipse,#dd176c65,transparent 67%);transform:rotate(-20deg);pointer-events:none}
+    .brand{display:flex;align-items:center;gap:13px;align-self:flex-start;color:white;text-decoration:none;position:relative;z-index:1}
+    .brand-symbol{width:51px;height:51px;display:grid;place-items:center;border-radius:16px;background:#fff;box-shadow:0 14px 32px #ad12553b;flex:none}
+    .brand-symbol svg{width:27px;height:27px;fill:#f1408d}.brand strong{font-size:29px;letter-spacing:-1.55px;line-height:1;font-weight:800;display:block}.brand small{display:block;letter-spacing:.23em;font-size:9px;font-weight:800;margin-top:7px;color:#fff9}
+    .art-content{position:relative;z-index:1;margin:32px 0 38px;max-width:700px}
+    .overline{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff69;border-radius:99px;padding:10px 14px;background:#ffffff22;box-shadow:inset 0 1px #ffffff4b;backdrop-filter:blur(10px);letter-spacing:.105em;font-size:10px;font-weight:800}
+    .status-dot{width:7px;height:7px;background:#fff;border-radius:50%;box-shadow:0 0 0 4px #ffffff30;flex:none}
+    .art-content h1{font-size:clamp(51px,5.7vw,104px);line-height:1.055;letter-spacing:-.088em;font-weight:800;margin:27px 0 23px;max-width:680px}
+    .art-content h1 em{color:#ffe0ee;font-style:normal}.art-content p{max-width:525px;margin:0;color:#fffefa;font-size:clamp(13px,1.15vw,17px);line-height:1.95;font-weight:500}
+    .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}.chips span{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 13px;border:1px solid #ffffff78;background:#ffffff2b;font-size:10px;font-weight:800;box-shadow:inset 0 1px #ffffff35;backdrop-filter:blur(10px)}.chips svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+    .art-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;position:relative;z-index:1}.milestone{width:min(450px,100%);padding:18px 19px;display:flex;align-items:center;gap:14px;border:1px solid #ffffff7e;background:#ffffff28;box-shadow:0 16px 44px #a61e5731,inset 0 1px #ffffff64;border-radius:20px;backdrop-filter:blur(18px)}.milestone-icon{width:43px;height:43px;flex:none;border-radius:13px;display:grid;place-items:center;background:#ffffff30;border:1px solid #ffffff7e;font-size:25px}.milestone strong{display:block;font-size:13px;letter-spacing:-.02em}.milestone span{display:block;font-size:10px;line-height:1.75;margin-top:5px;color:#fffdf0}.mini-copyright{flex:none;max-width:112px;line-height:1.7;font-size:9px;letter-spacing:.12em;font-weight:800;color:#ffffffd3}
+    .right-panel{position:relative;isolation:isolate;min-width:0;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:clamp(20px,4.6vw,80px);background:radial-gradient(ellipse at 91% 49%,#ffe1ee 0,transparent 47%),radial-gradient(ellipse at 10% 12%,#fff 0,transparent 60%),#fffcfd}
+    .right-panel:before{content:'';position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 100% 100%,#ffe6f122,transparent 55%);pointer-events:none}
+    .auth-card{width:min(534px,100%);background:#ffffffee;border:1px solid #f3dfe9;border-radius:30px;padding:clamp(25px,3vw,43px);box-shadow:0 34px 76px #a5487021,0 9px 22px #b8709110,inset 0 1px white;position:relative;min-width:0}
+    .auth-card:before{content:'';height:3px;position:absolute;left:45px;right:45px;top:0;border-radius:0 0 5px 5px;background:linear-gradient(90deg,transparent,#ff4e98,#ffbad7,transparent)}
+    .card-eyebrow{display:flex;align-items:center;gap:11px;margin-bottom:18px}.card-icon{width:45px;height:45px;display:grid;place-items:center;flex:none;background:linear-gradient(155deg,#fff3f8,#ffe2ef);border:1px solid #ffcbdf;border-radius:14px;color:#e73483;box-shadow:0 6px 20px #ed548e12}.card-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round}
+    .card-eyebrow strong{display:block;font-size:10px;letter-spacing:.16em;color:#d93680;font-weight:800}.card-eyebrow span{display:block;font-size:10px;color:#a499a5;margin-top:5px;font-weight:600}
+    .intro h2{margin:0;font-size:clamp(28px,2.65vw,38px);letter-spacing:-.067em;line-height:1.18;color:#282134;font-weight:800}.intro p{font-size:12px;line-height:1.85;color:#8b7f90;max-width:415px;margin:12px 0 20px;font-weight:500}
+    .switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;border:1px solid #f1dfe8;background:#fff1f7;padding:5px;border-radius:16px}.switch button{padding:12px 5px;background:transparent;border:0;border-radius:11px;font-size:11px;font-weight:800;color:#948190;min-width:0;transition:background .18s,color .18s,box-shadow .18s}.switch button.active{color:#d32e79;background:#fff;box-shadow:0 5px 14px #ad608326}.switch button:hover:not(.active){background:#ffe1ef;color:#d72f7d}
+    .form-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:20px 0 14px}.form-meta strong{font-size:11px;color:#3c3141}.form-meta span{font-size:9px;font-weight:800;color:#b4a1ae;letter-spacing:.07em;white-space:nowrap}
+    .fields{display:grid;gap:13px}.field{display:grid;gap:7px;min-width:0}.field label{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:11px;color:#413744;font-weight:800}.field label .hint{color:#b19cae;font-size:9px;font-weight:600}.input-wrap{position:relative;min-width:0;display:flex;align-items:center}.field input{width:100%;min-width:0;height:49px;border:1px solid #f0dce6;border-radius:13px;background:#fffafd;color:#2c2332;font-size:12px;font-weight:600;outline:0;padding:0 14px 0 43px;transition:background .15s,border-color .15s,box-shadow .15s}.field input::placeholder{color:#b7abb4;font-weight:500}.field input:hover{border-color:#f0afcb}.field input:focus{background:white;border-color:#f369a7;box-shadow:var(--ring)}.field input[aria-invalid=true]{border-color:#d84e73}.input-icon{position:absolute;left:14px;pointer-events:none;color:#c49bae}.input-icon svg{display:block;width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .password input{padding-right:88px}.eye{position:absolute;right:7px;top:7px;bottom:7px;border:0;background:#ffedf5;color:#d9337e;border-radius:9px;padding:0 11px;font-size:10px;font-weight:800}.eye:hover{background:#ffe0ed}.forgot-row{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:-3px}.tiny-secure{display:flex;align-items:center;gap:5px;font-size:9px;color:#8d8b91}.tiny-secure svg{width:14px;height:14px;stroke:#21ab83;fill:none;stroke-width:1.7}.text-link{border:0;background:none;padding:6px 0;color:#d92d7b;font-size:10px;font-weight:800}.text-link:hover{text-decoration:underline}
+    .notice{display:none;margin-top:14px;padding:11px 12px;border-radius:11px;border:1px solid #ffc9db;background:#fff2f7;color:#bd3d71;line-height:1.6;font-size:10.5px;font-weight:700}.notice.visible{display:flex;align-items:flex-start;gap:8px}.notice:before{content:'!';width:17px;height:17px;border-radius:50%;flex:none;display:grid;place-items:center;background:#ffe1eb;color:#bd3d71}.notice.ok{background:#eefff8;border-color:#b7ecda;color:#16775e}.notice.ok:before{content:'✓';background:#c9f6e7;color:#13795c}
+    .primary{width:100%;min-height:49px;margin-top:17px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ed3485;background:linear-gradient(105deg,#f13282,#ff77ae);border-radius:13px;color:white;box-shadow:0 13px 24px #ee3b8c31,inset 0 1px #ffffff55;font-size:12px;font-weight:800;transition:transform .18s,box-shadow .18s,filter .18s}.primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 17px 29px #e9388a44;filter:saturate(1.05)}.primary:active:not(:disabled){transform:translateY(0)}.primary svg{width:17px;height:17px;stroke:currentColor}.primary .spinner{display:none}.primary.busy .spinner{display:block;animation:spin .8s linear infinite}.primary.busy .arrow{display:none}
+    .oauth{margin-top:16px}.divider-label{display:flex;align-items:center;gap:11px;color:#a99ca7;font-size:10px;font-weight:700;margin-bottom:13px}.divider-label:before,.divider-label:after{content:'';flex:1;height:1px;background:#f2e1e9}.google-login{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;min-height:48px;background:#fff;border:1px solid #eedce5;border-radius:13px;box-shadow:0 5px 12px #ad55770b;font-size:11px;font-weight:800;color:#342d38;transition:transform .18s,background .18s,border-color .18s}.google-login:hover:not(:disabled){transform:translateY(-1px);border-color:#ec9fc2;background:#fff8fc}.google-login svg{width:19px;height:19px;flex:none}
+    .trust-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid #f6e5ec;color:#a69aaa;font-size:9px;font-weight:700}.trust-footer .dot{width:7px;height:7px;border-radius:50%;background:#22be95;box-shadow:0 0 0 4px #e6faf2;flex:none}.trust-footer .sep{color:#d6bcc9}.page-foot{text-align:center;margin:15px 0 0;font-size:10px;line-height:1.75;color:#b09ba9}.page-foot strong{color:#e13a83}.page-foot small{display:block;margin-top:4px;color:#b6a5af}
+    .loading-curtain{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#fff8fce8;backdrop-filter:blur(10px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s;padding:16px}.loading-curtain.show{opacity:1;visibility:visible;pointer-events:auto}.loading-box{width:min(350px,100%);text-align:center;padding:31px 25px;background:white;border:1px solid #f6dbe7;border-radius:24px;box-shadow:0 26px 80px #a8487f35}.loading-logo{display:grid;place-items:center;width:55px;height:55px;margin:0 auto 15px;border-radius:17px;color:white;font-size:26px;background:linear-gradient(135deg,#fa358b,#ff8abd);box-shadow:0 12px 26px #e7388b40;animation:breathe 1.2s ease-in-out infinite alternate}.loading-box h3{margin:0 0 7px;font-size:17px;letter-spacing:-.05em}.loading-box p{margin:0;color:#8c8390;font-size:11px;line-height:1.7}.loading-track{height:5px;border-radius:99px;background:#ffe7f1;overflow:hidden;margin-top:20px}.loading-track:before{content:'';width:42%;height:100%;display:block;border-radius:inherit;background:linear-gradient(90deg,#f13c8c,#ffa9ce);animation:track 1.15s infinite alternate ease-in-out}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes breathe{to{transform:scale(1.055)}}@keyframes track{to{transform:translateX(132%)}}
+    @media(max-width:1210px){.art-panel{padding:clamp(28px,3.6vw,55px)}.art-content h1{font-size:clamp(48px,5.4vw,78px)}.mini-copyright{display:none}.right-panel{padding:25px}.auth-card{padding:28px}}
+    @media(max-width:980px){.shell{grid-template-columns:1fr}.art-panel{height:auto;min-height:0;max-height:none;position:relative;top:auto;padding:24px 25px;border-radius:0 0 28px 28px}.art-panel:before{width:460px;top:-360px;right:-200px;box-shadow:0 0 0 40px #ffffff0a,0 0 0 100px #ffffff0b}.brand-symbol{width:39px;height:39px;border-radius:12px}.brand-symbol svg{width:20px;height:20px}.brand strong{font-size:23px}.brand small{font-size:8px;letter-spacing:.13em}.art-content{margin:20px 0 7px}.art-content h1{font-size:clamp(31px,5.5vw,46px);margin:11px 0 9px}.art-content p{font-size:11px;line-height:1.7}.overline{font-size:9px;padding:7px 9px}.chips,.art-bottom{display:none}.right-panel{min-height:0;padding:20px 14px 35px}.auth-card{width:min(540px,100%);padding:28px}}
+    @media(max-width:480px){.art-panel{padding:20px 20px 22px;border-radius:0 0 21px 21px}.brand-symbol{width:36px;height:36px}.brand strong{font-size:21px}.brand small{display:none}.art-content h1{font-size:34px;line-height:1.12;letter-spacing:-.077em}.art-content p{display:none}.right-panel{padding:14px 12px 25px}.auth-card{border-radius:22px;padding:21px 17px}.intro h2{font-size:27px}.intro p{font-size:11px;margin:10px 0 16px}.card-eyebrow{margin-bottom:13px}.switch button{font-size:10px;padding:11px 3px}.form-meta{margin:16px 0 12px}.field input{height:46px}.fields{gap:11px}.primary{margin-top:14px}.oauth{margin-top:14px}.trust-footer{margin-top:14px}.page-foot{font-size:9px;margin-top:10px}}
+    @media(max-width:355px){.art-content h1{font-size:31px}.auth-card{padding:19px 13px}.card-eyebrow strong{font-size:9px}.form-meta span{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-/* Google OAuth: consistent with the existing pink/white MyTask interface */
-.oauth{margin-top:22px}
-.oauth-divider{display:flex;align-items:center;gap:13px;margin-bottom:16px;color:#8f8490;font-size:12px;font-weight:600}
-.oauth-divider:before,.oauth-divider:after{content:"";flex:1;height:1px;background:#eadce4}
-.google-login{width:100%;display:flex;align-items:center;justify-content:center;gap:13px;min-height:52px;padding:12px 18px;border:1px solid #e7dce3;border-radius:15px;background:#fff;color:#302b36;font-weight:800;box-shadow:0 5px 16px #ca6a9220;transition:background .18s,border-color .18s,box-shadow .18s,transform .18s}
-.google-login:hover:not(:disabled){background:#fff7fa;border-color:#f3a9c9;box-shadow:0 8px 22px #ca6a9233;transform:translateY(-1px)}
-.google-login:active:not(:disabled){transform:translateY(0)}
-.google-login:focus-visible{outline:3px solid #ff91bf;outline-offset:3px}
-.google-login svg{width:21px;height:21px;flex:none}
-@media(prefers-reduced-motion:reduce){.google-login{transition:none}}
 
-/* Premium auth feedback + instant transition */
-.loading-curtain{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:linear-gradient(120deg,#fff6fbeb,#fffafd);backdrop-filter:blur(14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease,visibility .16s ease}
-.loading-curtain.show{opacity:1;visibility:visible;pointer-events:auto}
-.loading-panel{text-align:center;background:#fff;border:1px solid #f9d6e5;border-radius:26px;padding:40px;box-shadow:0 30px 75px #ba568f20;width:min(400px,calc(100vw - 32px))}
-.loading-icon{display:grid;place-items:center;margin:0 auto 17px;color:white;font-size:28px;width:59px;height:59px;border-radius:17px;background:linear-gradient(135deg,#ff3283,#ff83b4);box-shadow:0 12px 25px #f35b9d38;animation:breathe 1.3s ease-in-out infinite alternate}
-.loading-panel h3{font-size:21px;margin:0 0 8px;letter-spacing:-.6px}
-.loading-panel p{font-size:12px;line-height:1.75;color:#958696;margin:0}
-.loading-track{background:#ffedf5;height:6px;border-radius:20px;overflow:hidden;margin-top:21px}
-.loading-track:before{content:'';display:block;width:42%;height:100%;border-radius:20px;background:linear-gradient(90deg,#ff3283,#ff94c2);animation:slideTrack 1.2s ease-in-out infinite alternate}
-.auth-note{font-size:11px;color:#aa7b96;line-height:1.6;margin-top:9px}
-.primary{transition:transform .16s,box-shadow .16s}.primary:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 30px #f54c9455}
-@keyframes breathe{to{transform:scale(1.06);box-shadow:0 15px 33px #f35b9d55}}
-@keyframes slideTrack{to{transform:translateX(145%)}}
-@media(prefers-reduced-motion:reduce){.loading-curtain,.loading-icon,.loading-track:before{animation:none;transition:none}}
+    /* MyTask Precision Edition · editorial spacing and independent column heights */
+    :root { --rose-900:#292232; --rose-700:#d52a76; --rose-pink:#f53a8b; --rose-glow:#ff9dc5; --stroke:#f1dbe7; }
+    .shell { grid-template-columns:minmax(0, 1.02fr) minmax(0, 1fr); }
+    .art-panel {
+      padding:clamp(48px,6.15vw,105px);
+      background:linear-gradient(153deg,#e72b7e 0%,#f53c90 36%,#ff64a7 70%,#ff9cc3 100%);
+    }
+    .art-panel:before { right:-63%;top:-48%;width:115%;border-color:#ffffff49;box-shadow:0 0 0 77px #ffffff0b,0 0 0 155px #ffffff0a,0 0 0 236px #ffffff09; }
+    .art-panel:after { bottom:-48%;left:-45%;opacity:.8; }
+    .brand { gap:15px; }
+    .brand-symbol { width:53px;height:53px; border-radius:16px; }
+    .brand-symbol svg { width:27px;height:27px; }
+    .brand strong {font-size:29px}
+    .art-content {max-width:585px;margin:32px 0 37px;}
+    .overline {font-size:10px;letter-spacing:.13em;padding:11px 16px;}
+    .art-content h1 {
+      font-size:clamp(52px,4.8vw,77px);
+      line-height:1.115;
+      letter-spacing:-.078em;
+      max-width:605px;
+      margin:24px 0 22px;
+      text-wrap:balance;
+    }
+    .art-content h1 em { color:#ffe4f0; }
+    .art-content p {max-width:490px;font-size:clamp(13px,1.02vw,16px);line-height:1.95;font-weight:500;}
+    .chips {margin-top:29px;gap:9px;}
+    .chips span {padding:11px 13px;border-radius:12px;font-size:10px;}
+    .milestone {max-width:408px;padding:16px 17px;border-radius:19px;}
+    .milestone-icon {display:flex;justify-content:center;align-items:center;line-height:1;}
+    .right-panel {
+      padding:clamp(20px,3.8vw,60px);
+      background:radial-gradient(ellipse at 94% 20%,#ffeff5 0%,transparent 39%),radial-gradient(ellipse at 0% 83%,#fff5f9 0%,transparent 45%),#fffcfd;
+    }
+    .auth-card {
+      width:min(514px,100%);
+      padding:clamp(26px,2.6vw,38px);
+      background:#fffffffa;
+      border:1px solid #f2dfe9;
+      border-radius:28px;
+      box-shadow:0 31px 82px rgba(136,34,87,.13),0 8px 20px rgba(115,50,90,.045),inset 0 1px #fff;
+    }
+    .auth-card:before {left:42px;right:42px;height:3px;}
+    .card-eyebrow {gap:12px;margin-bottom:21px;align-items:center;}
+    .card-eyebrow .card-icon {
+      margin:0;
+      width:45px;height:45px;min-width:45px;flex:0 0 45px;
+      display:grid;place-items:center;
+      line-height:1;
+      background:linear-gradient(145deg,#fff4f9,#ffdfed);
+      box-shadow:0 8px 24px #fd87b220;color:#e73483;
+    }
+    .card-eyebrow .card-icon svg {display:block;width:23px;height:23px;fill:#ea3787;stroke:none;margin:0;}
+    .card-eyebrow > span:last-child {margin:0;display:flex;flex-direction:column;justify-content:center;min-height:45px;}
+    .card-eyebrow > span:last-child strong {font-size:10px;line-height:1.45;letter-spacing:.145em;}
+    .card-eyebrow > span:last-child > span {font-size:10px;margin-top:3px;line-height:1.5;}
+    .intro h2 {font-size:clamp(28px,2.42vw,35px);line-height:1.19;letter-spacing:-.065em;text-wrap:balance;}
+    .intro p {font-size:12px;line-height:1.85;margin:10px 0 20px;}
+    .switch {padding:5px;border-radius:15px;background:#fff4f8;gap:5px;}
+    .switch button {min-height:42px;font-size:11px;border-radius:10px;transition:background .2s,transform .2s,box-shadow .2s,color .2s;}
+    .switch button.active {box-shadow:0 5px 14px #bb5a8220,0 1px 2px #e0a4bf10;}
+    .form-meta {margin:22px 0 17px;align-items:center;gap:12px;}
+    .form-meta strong {font-size:12px;letter-spacing:-.025em;}
+    .form-meta span {font-size:9px;color:#b19eac;}
+    .fields {gap:15px;}
+    .field {gap:8px;}
+    .field label {color:#403344;font-size:11.5px;letter-spacing:-.005em;}
+    .field input {
+      height:51px;
+      border:1px solid #eadbe4;
+      background:#ffffff;
+      border-radius:13px;
+      color:#2d2535;
+      padding:0 14px 0 45px;
+      font-size:12.5px;
+      font-weight:600;
+      box-shadow:0 2px 3px #7b285905,inset 0 1px #fff;
+    }
+    .field input::placeholder {color:#ab9cac;font-weight:500;}
+    .field input:hover {border-color:#edb4cc;}
+    .field input:focus {border-color:#f3519b;box-shadow:0 0 0 4px #ff4f9a1e,0 4px 10px #ff5e9e0a;}
+    .input-icon {left:15px;color:#ba829c;}
+    .password input {padding-right:55px;}
+    .eye {
+      width:38px;height:36px;min-height:36px;
+      top:50%;bottom:auto;right:7px;
+      padding:0;transform:translateY(-50%);
+      display:grid;place-items:center;
+      border:1px solid #f8dbea;
+      background:#fff3f8;
+      color:#cc4887;
+      border-radius:10px;
+      transition:background .18s,box-shadow .18s,color .18s;
+    }
+    .eye svg {width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round;}
+    .eye .eye-off {display:none;}
+    .eye[aria-pressed="true"] .eye-on {display:none;}
+    .eye[aria-pressed="true"] .eye-off {display:block;}
+    .eye:hover {background:#ffe0ec;color:#bd2c72;box-shadow:0 3px 10px #fa5ca313;}
+    .eye:focus-visible {outline:2px solid #ef4897;outline-offset:2px;box-shadow:var(--ring);}
+    .forgot-row {margin-top:-1px;}
+    .tiny-secure {font-size:10px;line-height:1.6;}
+    .text-link {font-size:10.5px;}
+    .notice {margin-top:14px;padding:12px 13px;border-radius:12px;font-size:11px;}
+    .primary {
+      min-height:52px;border-radius:13px;margin-top:20px;font-size:12.5px;
+      background:linear-gradient(110deg,#ee3185 0%,#fb559b 55%,#ff83b8 100%);
+      box-shadow:0 13px 25px #e4398e30,inset 0 1px #ffffff55;
+    }
+    .oauth {margin-top:19px;}
+    .google-login {min-height:51px;font-size:12px;border-radius:13px;}
+    .google-login .google-spinner {display:none;}
+    .google-login.busy .google-mark {display:none;}
+    .google-login.busy .google-spinner {display:block;animation:spin .8s linear infinite;}
+    .trust-footer {margin-top:18px;padding-top:15px;font-size:9.5px;}
+    .page-foot {margin-top:17px;}
 
-</style></head><body><div class="shell"><aside class="showcase"><div class="brand"><span class="mark">✦</span>MyTask<span style="opacity:.65;font-size:12px;font-weight:500">/ your day, elevated.</span></div><div><div style="font-size:12px;font-weight:800;letter-spacing:.2em">THE ART OF GETTING THINGS DONE</div><h1>Make room for<br>what matters.</h1><p>Tugas, proyek, waktu fokus, dan ide terbaik Anda — kini terkelola di satu ruang produktivitas yang indah.</p></div><div class="mini"><div style="font-size:13px;opacity:.85">A more intentional day</div><div style="font-size:25px;font-weight:800;margin:12px 0">Less chaos. More clarity.</div><div style="font-size:12px">✦ Plan smart &nbsp; ✦ Stay focused &nbsp; ✦ Grow daily</div></div><div class="foot" style="font-size:11px;opacity:.7">© MyTask Productivity</div></aside><main class="main"><div class="panel"><div class="eyebrow">WELCOME TO YOUR SPACE</div><h2 id="headline">Welcome back.</h2><p class="muted" id="subtitle">Masuk untuk melanjutkan hari yang lebih produktif.</p><div class="switch" role="tablist"><button data-view="login" class="active">Masuk</button><button data-view="register">Daftar</button><button data-view="forgot">Lupa password</button></div><form id="authForm" novalidate><div class="field" id="nameGroup" hidden><label for="name">Nama lengkap</label><input id="name" autocomplete="name" maxlength="100" placeholder="Nama Anda"></div><div class="field"><label for="email">Alamat email</label><input id="email" type="email" autocomplete="email" placeholder="nama@email.com" required></div><div class="field" id="passGroup"><label for="password">Password</label><div class="password"><input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Minimal 8 karakter"><button class="eye" type="button" id="togglePassword">Lihat</button></div></div><div class="field" id="confirmGroup" hidden><label for="confirm">Konfirmasi password</label><input id="confirm" type="password" autocomplete="new-password" placeholder="Ulangi password"></div><div id="notice" role="status" aria-live="polite"></div><button class="primary" id="submitButton" type="submit">Masuk ke MyTask →</button></form><div class="oauth" id="googleSection"><div class="oauth-divider"><span>atau lanjutkan dengan</span></div><button type="button" class="google-login" id="googleButton" aria-label="Masuk atau daftar menggunakan akun Google"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.28 5.48-4.81 7.18l7.73 6C44.36 38.03 46.98 31.89 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.41 14.41 0 0 1 9.75 24c0-1.59.27-3.14.77-4.59l-7.98-6.2A23.9 23.9 0 0 0 0 24c0 3.87.92 7.51 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.47 0 11.9-2.13 15.86-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.13 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span id="googleButtonText">Masuk dengan Google</span></button></div><p style="text-align:center;font-size:12px;color:#7c7482;margin-top:20px">Produktivitas yang terasa personal. ✦</p><footer>Securely powered by Firebase Authentication</footer></div></main></div>
-<div id="loadingCurtain" class="loading-curtain" role="status" aria-live="polite"><div class="loading-panel"><div class="loading-icon">✦</div><h3>Preparing your MyTask space.</h3><p id="loadingText">Menyiapkan pengalaman produktivitas Anda...</p><div class="loading-track"></div><div class="auth-note">Your day, elevated. ✦</div></div></div><script src="config.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script>
-(()=>{'use strict';const authStart=performance.now();const cfg=window.MYTASK_CONFIG;const f=firebase.initializeApp(cfg.firebase);const auth=f.auth();let view='login',busy=false;const el=id=>document.getElementById(id);const speed=(stage,start)=>console.info(`[MyTask Speed] ${stage}: ${Math.round(performance.now()-start)} ms`);const curtain=(show,text='Menyiapkan dashboard Anda...')=>{el('loadingText').textContent=text;el('loadingCurtain').classList.toggle('show',show)};const go=destination=>{try{sessionStorage.setItem('mytask-login-start',String(Date.now()))}catch{};curtain(true,destination==='main.html'?'Login berhasil. Membuka workspace...':'Memeriksa verifikasi email Anda...');speed('Auth to redirect',authStart);requestAnimationFrame(()=>location.replace(destination))};const msg=(s,ok=false)=>{el('notice').textContent=s;el('notice').className=ok?'ok':'';};function draw(){document.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',b.dataset.view===view)});el('headline').textContent={login:'Welcome back.',register:'Create your space.',forgot:'Reset your password.'}[view];el('subtitle').textContent={login:'Masuk untuk melanjutkan hari yang lebih produktif.',register:'Bangun kebiasaan hebat, satu task setiap saat.',forgot:'Kami akan mengirim tautan reset password ke email Anda.'}[view];el('nameGroup').hidden=view!=='register';el('passGroup').hidden=view==='forgot';el('confirmGroup').hidden=view!=='register';el('googleSection').hidden=view==='forgot';el('googleButtonText').textContent=view==='register'?'Daftar dengan Google':'Masuk dengan Google';el('submitButton').textContent={login:'Masuk ke MyTask →',register:'Buat akun sekarang →',forgot:'Kirim tautan reset →'}[view];el('password').autocomplete=view==='register'?'new-password':'current-password';msg('');}document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;draw()});el('togglePassword').onclick=()=>{const p=el('password');p.type=p.type==='password'?'text':'password';el('togglePassword').textContent=p.type==='password'?'Lihat':'Sembunyi'};
-const codes={'auth/popup-closed-by-user':'Jendela Google ditutup sebelum login selesai.','auth/cancelled-popup-request':'Permintaan login Google sebelumnya dibatalkan.','auth/popup-blocked':'Browser memblokir pop-up. Izinkan pop-up untuk website MyTask, lalu coba lagi.','auth/unauthorized-domain':'Domain website belum diizinkan di Firebase Authentication → Settings → Authorized domains.','auth/operation-not-allowed':'Google Login belum diaktifkan di Firebase Authentication → Sign-in method.','auth/account-exists-with-different-credential':'Email ini sudah terhubung ke metode login lain. Masuk dengan metode lama terlebih dahulu.','auth/network-request-failed':'Koneksi terputus. Silakan coba lagi.','auth/email-already-in-use':'Email sudah digunakan. Silakan masuk.','auth/invalid-email':'Format email tidak valid.','auth/invalid-credential':'Email atau password tidak sesuai.','auth/weak-password':'Password terlalu lemah.','auth/too-many-requests':'Terlalu banyak percobaan. Coba lagi nanti.','auth/network-request-failed':'Koneksi terputus. Silakan coba lagi.'};
-el('authForm').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;const email=el('email').value.trim(),password=el('password').value;try{if(!/^\S+@\S+\.\S+$/.test(email))throw Error('Masukkan alamat email yang valid.');if(view!=='forgot'&&password.length<8)throw Error('Password minimal 8 karakter.');if(view==='register'&&password!==el('confirm').value)throw Error('Konfirmasi password tidak sama.');if(view==='register'&&!el('name').value.trim())throw Error('Nama wajib diisi.');busy=true;const tOp=performance.now();el('submitButton').disabled=true;el('submitButton').textContent='Memproses dengan aman…';msg('Menghubungkan akun Anda…');if(view==='forgot'){await auth.sendPasswordResetEmail(email);speed('Reset password request',tOp);msg('Jika alamat email terdaftar, petunjuk reset akan dikirim.',true)}else if(view==='register'){const r=await auth.createUserWithEmailAndPassword(email,password);await r.user.updateProfile({displayName:el('name').value.trim()});await r.user.sendEmailVerification();speed('Registration + verification email',tOp);go('verify.html')}else{const r=await auth.signInWithEmailAndPassword(email,password);if(!r.user.emailVerified)await r.user.reload();speed('Email sign-in',tOp);go(r.user.emailVerified?'main.html':'verify.html')}}catch(err){msg(codes[err.code]||err.message||'Terjadi kesalahan.')}finally{busy=false;el('submitButton').disabled=false;draw()}});
-// Only request the normal Google account identity, not additional Google data scopes.
-el('googleButton').addEventListener('click',async()=>{
-  if(busy)return;
-  busy=true;const tGoogle=performance.now();
-  el('submitButton').disabled=true;
-  el('googleButton').disabled=true;
-  el('googleButtonText').textContent='Menghubungkan Google...';
-  msg('Pilih akun Google pada jendela yang terbuka.');
-  try{
-    const provider=new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({prompt:'select_account'});
-    // Popup mode avoids the cross-domain storage issues of Firebase redirect on Vercel.
-    const result=await auth.signInWithPopup(provider);
-    if(!result.user)throw Error('Google tidak mengembalikan akun pengguna.');
-    if(!result.user.emailVerified)await result.user.reload();
-    speed('Google sign-in',tGoogle);msg('Login Google berhasil. Membuka dashboard...',true);
-    go(result.user.emailVerified?'main.html':'verify.html');
-  }catch(err){
-    if(err.code==='auth/popup-closed-by-user')msg('Login Google dibatalkan.');
-    else msg(codes[err.code]||err.message||'Login Google gagal. Silakan coba lagi.');
-  }finally{
-    busy=false;
-    el('submitButton').disabled=false;
-    el('googleButton').disabled=false;
-    el('googleButtonText').textContent=view==='register'?'Daftar dengan Google':'Masuk dengan Google';
-  }
-});
-auth.onAuthStateChanged(async user=>{if(busy)return;if(user){try{if(!user.emailVerified)await user.reload();go(user.emailVerified?'main.html':'verify.html')}catch{}}});draw();window.addEventListener('load',()=>speed('Auth page load',authStart));})();
-</script></body></html>
+    /* Premium, accessible toast: works for success, errors, and network progress. */
+    .toast-zone {position:fixed;z-index:170;top:max(19px,env(safe-area-inset-top));right:max(19px,env(safe-area-inset-right));width:min(388px,calc(100vw - 30px));pointer-events:none;}
+    .auth-toast {position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 27px;align-items:start;gap:12px;padding:17px 15px 20px;border-radius:19px;border:1px solid #eed9e4;background:rgba(255,255,255,.98);box-shadow:0 22px 70px #6323432f,0 6px 15px #b7428015;pointer-events:auto;overflow:hidden;animation:toast-slide .28s cubic-bezier(.2,.8,.2,1) both;}
+    .auth-toast:before {content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#ff3c96,#ff9bc7);}
+    .auth-toast .toast-symbol {width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#fff0f7,#ffdeed);color:#d32d79;}
+    .auth-toast .toast-symbol svg {width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .auth-toast .toast-body {padding-top:1px;min-width:0;}
+    .auth-toast .toast-title {font-size:12px;font-weight:800;letter-spacing:-.02em;color:#322739;line-height:1.4;}
+    .auth-toast .toast-message {font-size:10.5px;color:#8c778a;line-height:1.7;margin-top:4px;overflow-wrap:anywhere;}
+    .auth-toast .toast-close {display:grid;place-items:center;background:transparent;border:none;color:#9f8897;width:27px;height:27px;border-radius:9px;font-size:20px;line-height:1;}
+    .auth-toast .toast-close:hover {background:#fff0f7;color:#d7317b;}
+    .auth-toast .toast-track {position:absolute;left:0;right:0;bottom:0;height:3px;background:#fff0f7;}
+    .auth-toast .toast-track:after {content:'';display:block;height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,#ef3587,#ff93bb);animation:toast-lifetime var(--toast-life,5s) linear both;}
+    .auth-toast.success .toast-symbol {background:#e4fbf1;color:#19916b;}
+    .auth-toast.success:before,.auth-toast.success .toast-track:after {background:#1fb98a;}
+    .auth-toast.error .toast-symbol {background:#fff0f4;color:#dd466e;}
+    .auth-toast.error:before,.auth-toast.error .toast-track:after {background:#ed557b;}
+    .auth-toast.loading .toast-symbol svg {animation:spin 1s linear infinite;}
+    .auth-toast.loading .toast-track:after {width:36%;animation:toast-pulse 1.2s ease-in-out infinite alternate;}
+    @keyframes toast-slide {from{opacity:0;transform:translate3d(0,-13px,0) scale(.98)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+    @keyframes toast-lifetime {from{transform:scaleX(1)}to{transform:scaleX(0)}}
+    @keyframes toast-pulse {to{transform:translateX(170%)}}
+
+    @media(max-width:1360px) and (min-width:981px){
+      .art-panel{padding:clamp(45px,5.3vw,80px)}
+      .art-content h1{font-size:clamp(46px,4.9vw,69px);}
+      .art-content p{font-size:13px;}
+      .milestone{max-width:390px}
+      .right-panel{padding:clamp(17px,2.5vw,38px)}
+    }
+    @media(max-width:980px){
+      .shell{grid-template-columns:minmax(0,1fr)}
+      .art-panel{height:auto;min-height:0;max-height:none;position:relative;top:auto;padding:28px 30px 30px;border-radius:0 0 26px 26px;}
+      .art-content{margin:23px 0 4px;max-width:700px;}
+      .art-content h1{font-size:clamp(33px,5vw,47px);letter-spacing:-.07em;margin:13px 0 10px;}
+      .art-content p{font-size:12px;line-height:1.7;}
+      .right-panel{min-height:0;padding:24px 16px 40px;}
+      .auth-card{max-width:540px;padding:32px;}
+      .brand-symbol{width:42px;height:42px;}
+      .brand-symbol svg{width:22px;height:22px;}
+    }
+    @media(max-width:480px){
+      .art-panel{padding:24px 24px 25px;border-radius:0 0 24px 24px;}
+      .art-content{margin:19px 0 0;}
+      .art-content h1{font-size:clamp(32px,9vw,37px);line-height:1.13;margin:12px 0 0;}
+      .art-content p,.chips,.art-bottom{display:none;}
+      .brand-symbol{width:40px;height:40px;border-radius:12px;}
+      .brand-symbol svg{width:21px;height:21px;}
+      .right-panel{padding:15px 12px 26px;}
+      .auth-card{padding:23px 19px;border-radius:22px;}
+      .card-eyebrow{margin-bottom:17px;}
+      .intro h2{font-size:28px;}
+      .intro p{margin:10px 0 18px;font-size:11.5px;}
+      .switch button{min-height:41px;font-size:10px;padding:10px 3px;}
+      .form-meta{margin:18px 0 14px;}
+      .field input{height:49px;font-size:12.5px;}
+      .fields{gap:13px;}
+      .primary{margin-top:17px;min-height:50px;}
+      .oauth{margin-top:16px;}
+      .toast-zone{top:max(12px,env(safe-area-inset-top));right:12px;width:calc(100vw - 24px);}
+      .auth-toast{border-radius:16px;padding:13px 12px 18px;grid-template-columns:36px minmax(0,1fr) 24px;gap:10px;}
+      .auth-toast .toast-symbol{width:36px;height:36px;}
+    }
+    @media(max-width:355px){
+      .art-panel{padding:20px;}
+      .art-content h1{font-size:31px;}
+      .auth-card{padding:21px 15px;}
+      .card-eyebrow > span:last-child strong{font-size:9px;}
+      .field label{font-size:11px;}
+    }
+    @media(prefers-reduced-motion:reduce){.auth-toast{animation:none}.auth-toast .toast-track:after{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="art-panel" aria-label="MyTask personal productivity studio">
+      <a href="index.html" class="brand" aria-label="MyTask beranda">
+        <span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 6 38.9 25.1 58 32 38.9 38.9 32 58 25.1 38.9 6 32 25.1 25.1Z"/></svg></span>
+        <span><strong>MyTask<span style="color:#ffe2ee">.</span></strong><small>PERSONAL PRODUCTIVITY STUDIO</small></span>
+      </a>
+      <section class="art-content">
+        <div class="overline"><span class="status-dot"></span> YOUR SPACE · YOUR PROGRESS</div>
+        <h1>Make every day<br><em>matter more.</em></h1>
+        <p>Rencanakan hal penting, kelola setiap tugas, dan rayakan kemajuan kecil. Satu ruang yang terasa lebih tenang, lebih fokus, dan sepenuhnya milik Anda.</p>
+        <div class="chips" aria-hidden="true">
+          <span><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg> Smart planning</span>
+          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg> Deep focus</span>
+          <span><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"/></svg> Beautiful progress</span>
+        </div>
+      </section>
+      <div class="art-bottom">
+        <div class="milestone"><div class="milestone-icon" aria-hidden="true">✦</div><div><strong>Less busy. More meaningful.</strong><span>Ruang produktivitas yang dibuat untuk memberi kejelasan pada setiap langkah Anda.</span></div></div>
+        <div class="mini-copyright">PLAN SMARTER.<br>LIVE LIGHTER.</div>
+      </div>
+    </aside>
+    <main class="right-panel" id="mainContent">
+      <div style="width:min(534px,100%);min-width:0">
+        <section class="auth-card" aria-label="Autentikasi akun MyTask">
+          <div class="card-eyebrow">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 1.75 14.7 9.3 22.25 12 14.7 14.7 12 22.25 9.3 14.7 1.75 12 9.3 9.3Z" fill="currentColor"/></svg></span>
+            <span><strong id="eyebrow">SECURE PERSONAL WORKSPACE</strong><span>MyTask · A better way to get things done</span></span>
+          </div>
+          <div class="intro"><h2 id="headline">Selamat datang kembali.</h2><p id="subtitle">Lanjutkan hari Anda dengan lebih terarah.</p></div>
+          <nav class="switch" aria-label="Pilih halaman autentikasi">
+            <button type="button" data-view="login" class="active" aria-current="page">Masuk</button>
+            <button type="button" data-view="register">Daftar</button>
+            <button type="button" data-view="forgot">Lupa password</button>
+          </nav>
+          <div class="form-meta"><strong id="formTitle">Masuk ke akun MyTask</strong><span id="formHint">WELCOME BACK ✦</span></div>
+          <form id="authForm" novalidate>
+            <div class="fields">
+              <div class="field" id="nameGroup" hidden><label for="name">Nama lengkap</label><div class="input-wrap"><span class="input-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 22a8 8 0 0 1 16 0"/></svg></span><input id="name" name="name" type="text" maxlength="100" autocomplete="name" placeholder="Nama lengkap Anda"></div></div>
+              <div class="field"><label for="email">Alamat email</label><div class="input-wrap"><span class="input-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><input id="email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="nama@email.com" required></div></div>
+              <div class="field" id="passGroup"><label for="password">Password <span class="hint" id="passwordHint"></span></label><div class="input-wrap password"><span class="input-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><input id="password" name="password" type="password" minlength="8" autocomplete="current-password" placeholder="Masukkan password" required><button type="button" class="eye" id="togglePassword" aria-label="Tampilkan password" aria-pressed="false" title="Lihat password"><svg class="eye-on" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3 21 21M10.7 5.6c.4-.1.85-.1 1.3-.1 6 0 9.5 6.5 9.5 6.5a15.4 15.4 0 0 1-3.2 3.8M6.6 6.8C4.1 8.5 2.5 12 2.5 12s3.5 6.5 9.5 6.5c1.8 0 3.5-.6 4.9-1.5M10 10a3 3 0 0 0 4 4"/></svg></button></div></div>
+              <div class="field" id="confirmGroup" hidden><label for="confirm">Konfirmasi password</label><div class="input-wrap password"><span class="input-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Ulangi password Anda"><button type="button" class="eye" id="toggleConfirm" aria-label="Tampilkan konfirmasi password" aria-pressed="false" title="Lihat konfirmasi password"><svg class="eye-on" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3 21 21M10.7 5.6c.4-.1.85-.1 1.3-.1 6 0 9.5 6.5 9.5 6.5a15.4 15.4 0 0 1-3.2 3.8M6.6 6.8C4.1 8.5 2.5 12 2.5 12s3.5 6.5 9.5 6.5c1.8 0 3.5-.6 4.9-1.5M10 10a3 3 0 0 0 4 4"/></svg></button></div></div>
+              <div class="forgot-row" id="forgotShortcut"><span class="tiny-secure"><svg viewBox="0 0 24 24"><path d="M12 2 20 5v6c0 5-3 8-8 11-5-3-8-6-8-11V5Z"/><path d="m8 12 3 3 5-6"/></svg> Dilindungi Firebase Authentication</span><button type="button" class="text-link" data-view="forgot">Lupa password?</button></div>
+            </div>
+            <div id="notice" class="notice" role="status" aria-live="polite" aria-atomic="true"></div>
+            <button class="primary" id="submitButton" type="submit"><svg class="spinner" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 1 1-9 9" stroke-width="3" stroke-linecap="round"/></svg><span id="submitText">Masuk ke MyTask</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+          </form>
+          <div class="oauth" id="googleSection"><div class="divider-label">atau lanjutkan dengan</div><button type="button" class="google-login" id="googleButton" aria-label="Masuk atau daftar menggunakan Google"><svg class="google-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.28 5.48-4.81 7.18l7.73 6C44.36 38.03 46.98 31.89 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.41 14.41 0 0 1 9.75 24c0-1.59.27-3.14.77-4.59l-7.98-6.2A23.9 23.9 0 0 0 0 24c0 3.87.92 7.51 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.47 0 11.9-2.13 15.86-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.13 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><svg class="google-spinner" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 1 1-9 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span id="googleButtonText">Masuk dengan Google</span></button></div>
+          <div class="trust-footer"><span class="dot"></span><span>Private productivity workspace</span><span class="sep">·</span><span>MyTask © 2026</span></div>
+        </section>
+        <footer class="page-foot">Made for a more intentional day. <strong>✦ MyTask</strong><small>Securely powered by Firebase Authentication</small></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toastZone" class="toast-zone" aria-live="polite" aria-atomic="false"></div>
+  <div id="loadingCurtain" class="loading-curtain" role="status" aria-live="polite" aria-hidden="true"><div class="loading-box"><div class="loading-logo" aria-hidden="true">✦</div><h3>Menyiapkan ruang MyTask.</h3><p id="loadingText">Menghubungkan workspace produktivitas Anda...</p><div class="loading-track" aria-hidden="true"></div></div></div>
+  <script src="config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const started = performance.now();
+      const $ = id => document.getElementById(id);
+      const logSpeed = (label, start = started) => console.info(`[MyTask Speed] ${label}: ${Math.round(performance.now() - start)} ms`);
+      const labels = {
+        login: { eyebrow: 'SECURE PERSONAL WORKSPACE', title: 'Selamat datang kembali.', subtitle: 'Lanjutkan tugas, atur prioritas, dan jalani hari yang lebih fokus di ruang produktivitas Anda.', form: 'Masuk ke akun MyTask', hint: 'WELCOME BACK ✦', action: 'Masuk ke MyTask' },
+        register: { eyebrow: 'CREATE YOUR PERSONAL SPACE', title: 'Mulai perjalanan produktif.', subtitle: 'Buat akun gratis untuk mengelola agenda, proyek, dan target pribadi dalam satu workspace yang indah.', form: 'Daftarkan akun baru', hint: 'START YOUR JOURNEY ✦', action: 'Daftar ke MyTask' },
+        forgot: { eyebrow: 'ACCOUNT RECOVERY', title: 'Pulihkan akses akun.', subtitle: 'Masukkan alamat email terdaftar untuk menerima tautan pengaturan ulang password secara aman.', form: 'Pemulihan password', hint: 'SECURE RECOVERY ✦', action: 'Kirim tautan reset' }
+      };
+      const errors = {
+        'auth/popup-closed-by-user': 'Jendela Google ditutup sebelum proses login selesai.',
+        'auth/cancelled-popup-request': 'Proses login Google dibatalkan. Coba lagi.',
+        'auth/popup-blocked': 'Browser memblokir pop-up Google. Izinkan pop-up situs ini, lalu coba lagi.',
+        'auth/unauthorized-domain': 'Domain website belum terdaftar di Firebase → Authentication → Authorized domains.',
+        'auth/operation-not-allowed': 'Metode login ini belum diaktifkan pada Firebase Authentication.',
+        'auth/account-exists-with-different-credential': 'Email sudah terkait metode login lain. Gunakan metode tersebut.',
+        'auth/network-request-failed': 'Koneksi jaringan gagal. Periksa internet Anda dan coba kembali.',
+        'auth/email-already-in-use': 'Email sudah terdaftar. Silakan masuk menggunakan akun tersebut.',
+        'auth/invalid-email': 'Format alamat email tidak valid.',
+        'auth/invalid-credential': 'Email atau password tidak sesuai.',
+        'auth/user-disabled': 'Akun Anda sedang dinonaktifkan. Hubungi pengelola layanan.',
+        'auth/weak-password': 'Password terlalu lemah. Gunakan minimal 8 karakter.',
+        'auth/too-many-requests': 'Terlalu banyak percobaan login. Coba beberapa saat lagi.',
+        'auth/api-key-not-valid.-please-pass-a-valid-api-key.': 'Firebase API Key tidak valid. Periksa pengaturan config.js.',
+        'auth/invalid-api-key': 'Firebase API Key tidak valid. Periksa pengaturan config.js.'
+      };
+      let auth = null;
+      let activeView = 'login';
+      let busy = false;
+      let navigating = false;
+      let currentToast = null;
+      let toastTimer = null;
+      const toastIcons = {
+        success: '<path d="M4 12.5 9.5 18 20 6"/>',
+        error: '<circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/>',
+        loading: '<path d="M12 3a9 9 0 1 1-9 9"/>'
+      };
+      function notify(title, message, tone = 'success', duration = 5000) {
+        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+        const zone = $('toastZone');
+        zone.replaceChildren();
+        const toast = document.createElement('section');
+        toast.className = `auth-toast ${tone}`;
+        toast.style.setProperty('--toast-life', `${duration}ms`);
+        toast.setAttribute('role', tone === 'error' ? 'alert' : 'status');
+        const symbol = document.createElement('div');
+        symbol.className = 'toast-symbol';
+        // The SVG paths are static markup controlled by this page.
+        symbol.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${toastIcons[tone] || toastIcons.success}</svg>`;
+        const body = document.createElement('div');
+        body.className = 'toast-body';
+        const titleEl = document.createElement('div');
+        titleEl.className = 'toast-title';
+        titleEl.textContent = title;
+        const messageEl = document.createElement('div');
+        messageEl.className = 'toast-message';
+        messageEl.textContent = message;
+        body.append(titleEl, messageEl);
+        const close = document.createElement('button');
+        close.className = 'toast-close';
+        close.type = 'button';
+        close.textContent = '×';
+        close.setAttribute('aria-label', 'Tutup notifikasi');
+        close.addEventListener('click', () => { if (currentToast === toast) clearToast(); });
+        const track = document.createElement('span');
+        track.className = 'toast-track';
+        track.setAttribute('aria-hidden', 'true');
+        toast.append(symbol, body, close, track);
+        zone.appendChild(toast);
+        currentToast = toast;
+        if (duration > 0) toastTimer = setTimeout(() => { if (currentToast === toast) clearToast(); }, duration);
+      }
+      function clearToast(loadingOnly = false) {
+        if (loadingOnly && !currentToast?.classList.contains('loading')) return;
+        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+        $('toastZone').replaceChildren();
+        currentToast = null;
+      }
+      const setNotice = (message = '', ok = false, showToast = true) => {
+        $('notice').textContent = message;
+        $('notice').classList.toggle('visible', Boolean(message));
+        $('notice').classList.toggle('ok', ok);
+        if (message && showToast) notify(ok ? 'Permintaan berhasil' : 'Perlu diperiksa', message, ok ? 'success' : 'error');
+      };
+      const setBusy = (status, kind = 'form') => {
+        busy = status;
+        $('submitButton').disabled = status;
+        $('googleButton').disabled = status;
+        $('submitButton').setAttribute('aria-busy', String(status && kind === 'form'));
+        $('googleButton').setAttribute('aria-busy', String(status && kind === 'google'));
+        $('submitButton').classList.toggle('busy', status && kind === 'form');
+        $('googleButton').classList.toggle('busy', status && kind === 'google');
+        document.querySelectorAll('[data-view]').forEach(button => button.disabled = status);
+        $('submitText').textContent = status && kind === 'form' ? 'Memproses akun...' : labels[activeView].action;
+        $('googleButtonText').textContent = status && kind === 'google' ? 'Menghubungkan ke Google...' : (activeView === 'register' ? 'Daftar dengan Google' : 'Masuk dengan Google');
+        if (status) {
+          const title = kind === 'google' ? 'Menghubungkan akun Google' : activeView === 'register' ? 'Membuat akun MyTask' : activeView === 'forgot' ? 'Mengirim email pemulihan' : 'Memeriksa akun MyTask';
+          notify(title, 'Permintaan sedang diproses dengan aman. Mohon jangan menutup halaman.', 'loading', 0);
+        } else clearToast(true);
+      };
+      function showCurtain(message) {
+        $('loadingText').textContent = message;
+        $('loadingCurtain').classList.add('show');
+        $('loadingCurtain').setAttribute('aria-hidden', 'false');
+      }
+      function redirectTo(destination) {
+        if (navigating) return;
+        navigating = true;
+        try { sessionStorage.setItem('mytask-login-start', String(Date.now())); } catch (_) {}
+        showCurtain(destination === 'main.html' ? 'Login berhasil. Membuka workspace MyTask...' : 'Akun berhasil dibuat. Menyiapkan halaman verifikasi email...');
+        logSpeed('Auth redirect');
+        requestAnimationFrame(() => { window.location.replace(destination); });
+      }
+      function switchView(nextView) {
+        if (busy || !labels[nextView]) return;
+        activeView = nextView;
+        document.querySelectorAll('[data-view]').forEach(button => {
+          const active = button.dataset.view === activeView;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-current', active ? 'page' : 'false');
+        });
+        const data = labels[activeView];
+        $('eyebrow').textContent = data.eyebrow;
+        // Only authored, static markup goes into the heading; user-entered data never does.
+        $('headline').textContent = data.title;
+        $('subtitle').textContent = data.subtitle;
+        $('formTitle').textContent = data.form;
+        $('formHint').textContent = data.hint;
+        $('submitText').textContent = data.action;
+        $('nameGroup').hidden = activeView !== 'register';
+        $('confirmGroup').hidden = activeView !== 'register';
+        $('passGroup').hidden = activeView === 'forgot';
+        $('forgotShortcut').hidden = activeView !== 'login';
+        $('googleSection').hidden = activeView === 'forgot';
+        $('passwordHint').textContent = activeView === 'register' ? 'Minimal 8 karakter' : '';
+        $('password').autocomplete = activeView === 'register' ? 'new-password' : 'current-password';
+        $('password').required = activeView !== 'forgot';
+        $('confirm').required = activeView === 'register';
+        $('name').required = activeView === 'register';
+        $('googleButtonText').textContent = activeView === 'register' ? 'Daftar dengan Google' : 'Masuk dengan Google';
+        setNotice();
+        clearToast();
+        logSpeed(`Switch auth view → ${activeView}`);
+      }
+      function toggleVisibility(inputId, buttonId) {
+        const input = $(inputId), button = $(buttonId);
+        const isHidden = input.type === 'password';
+        input.type = isHidden ? 'text' : 'password';
+        button.setAttribute('aria-pressed', String(isHidden));
+        const noun = inputId === 'confirm' ? 'konfirmasi password' : 'password';
+        button.setAttribute('aria-label', isHidden ? `Sembunyikan ${noun}` : `Tampilkan ${noun}`);
+        button.title = isHidden ? `Sembunyikan ${noun}` : `Lihat ${noun}`;
+      }
+      document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => switchView(button.dataset.view)));
+      $('togglePassword').addEventListener('click', () => toggleVisibility('password', 'togglePassword'));
+      $('toggleConfirm').addEventListener('click', () => toggleVisibility('confirm', 'toggleConfirm'));
+      switchView('login');
+
+      try {
+        const cfg = window.MYTASK_CONFIG;
+        if (!cfg?.firebase?.apiKey || cfg.firebase.apiKey.startsWith('REPLACE_') || !window.firebase?.auth) {
+          throw Error('Firebase belum dikonfigurasi atau SDK tidak berhasil dimuat. Periksa config.js dan koneksi internet.');
+        }
+        firebase.initializeApp(cfg.firebase);
+        auth = firebase.auth();
+      } catch (err) {
+        setNotice(err.message || 'Firebase gagal diinisialisasi.');
+        $('submitButton').disabled = true;
+        $('googleButton').disabled = true;
+        console.error('[MyTask Auth]', err);
+        return;
+      }
+
+      $('authForm').addEventListener('submit', async event => {
+        event.preventDefault();
+        if (busy || navigating) return;
+        const email = $('email').value.trim();
+        const password = $('password').value;
+        if (!/^\S+@\S+\.\S+$/.test(email)) { setNotice('Masukkan alamat email yang valid.'); $('email').focus(); return; }
+        if (activeView !== 'forgot' && !password) { setNotice('Masukkan password Anda.'); $('password').focus(); return; }
+        if (activeView === 'register') {
+          if (!$('name').value.trim()) { setNotice('Nama lengkap wajib diisi.'); $('name').focus(); return; }
+          if (password.length < 8) { setNotice('Password harus memiliki minimal 8 karakter.'); $('password').focus(); return; }
+          if (password !== $('confirm').value) { setNotice('Konfirmasi password tidak sesuai.'); $('confirm').focus(); return; }
+        }
+        const mode = activeView;
+        const tick = performance.now();
+        setNotice();
+        setBusy(true);
+        try {
+          if (mode === 'forgot') {
+            await auth.sendPasswordResetEmail(email);
+            logSpeed('Password reset request', tick);
+            setNotice('Jika email terdaftar, tautan pemulihan akan dikirim. Periksa juga folder spam.', true);
+            $('password').value = '';
+          } else if (mode === 'register') {
+            const result = await auth.createUserWithEmailAndPassword(email, password);
+            await result.user.updateProfile({displayName: $('name').value.trim()});
+            try {
+              await result.user.sendEmailVerification();
+              notify('Akun berhasil dibuat', 'Email verifikasi sudah dikirim. Periksa inbox dan folder spam Anda.', 'success', 0);
+            } catch (verificationError) {
+              notify('Akun berhasil dibuat', 'Email verifikasi belum terkirim. Gunakan tombol kirim ulang pada halaman verifikasi.', 'error', 0);
+              console.warn('[MyTask Auth] Verification email failed', verificationError?.code || verificationError?.message);
+            }
+            logSpeed('Register + verification email', tick);
+            redirectTo('verify.html');
+          } else {
+            const result = await auth.signInWithEmailAndPassword(email, password);
+            if (!result.user.emailVerified) await result.user.reload();
+            logSpeed('Email/password sign-in', tick);
+            notify(result.user.emailVerified ? 'Login berhasil' : 'Verifikasi diperlukan', result.user.emailVerified ? 'Selamat datang kembali! Workspace Anda sedang disiapkan.' : 'Silakan verifikasi email untuk melanjutkan.', result.user.emailVerified ? 'success' : 'error', 0);
+            redirectTo(result.user.emailVerified ? 'main.html' : 'verify.html');
+          }
+        } catch (err) {
+          setNotice(errors[err.code] || err.message || 'Proses autentikasi belum berhasil. Silakan coba lagi.');
+          console.warn('[MyTask Auth] Form failed', err?.code || err?.message);
+        } finally {
+          if (!navigating) setBusy(false);
+        }
+      });
+
+      $('googleButton').addEventListener('click', async () => {
+        if (busy || navigating) return;
+        const tick = performance.now();
+        setNotice();
+        setBusy(true, 'google');
+        try {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          provider.setCustomParameters({prompt: 'select_account'});
+          const result = await auth.signInWithPopup(provider);
+          if (!result.user) throw Error('Google tidak mengembalikan akun pengguna.');
+          if (!result.user.emailVerified) await result.user.reload();
+          logSpeed('Google sign-in', tick);
+          notify('Google Login berhasil', 'Akun Google tersambung. Membuka MyTask...', 'success', 0);
+          redirectTo(result.user.emailVerified ? 'main.html' : 'verify.html');
+        } catch (err) {
+          setNotice(errors[err.code] || err.message || 'Login dengan Google tidak berhasil. Silakan coba lagi.');
+          console.warn('[MyTask Auth] Google sign-in failed', err?.code || err?.message);
+        } finally {
+          if (!navigating) setBusy(false);
+        }
+      });
+
+      const stateStart = performance.now();
+      auth.onAuthStateChanged(async user => {
+        logSpeed('Firebase auth state ready', stateStart);
+        if (!user || busy || navigating) return;
+        try {
+          if (!user.emailVerified) await user.reload();
+          if (!busy && !navigating) redirectTo(user.emailVerified ? 'main.html' : 'verify.html');
+        } catch (err) {
+          console.warn('[MyTask Auth] Unable to confirm session', err?.code || err?.message);
+        }
+      }, err => {
+        setNotice(errors[err.code] || 'Gagal membaca sesi login. Silakan refresh halaman.');
+      });
+      window.addEventListener('load', () => logSpeed('Auth page loaded'));
+    })();
+  </script>
+</body>
+</html>
