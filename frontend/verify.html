@@ -1,1 +1,141 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verifikasi Email — MyTask</title><style>@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:'Plus Jakarta Sans',sans-serif;color:#272337;background:radial-gradient(circle at 10% 10%,#ffd5e8,transparent 45%),#fff8fb;padding:20px}.panel{background:white;border:1px solid #ffe4ef;border-radius:28px;max-width:490px;padding:45px;box-shadow:0 24px 80px #d03b7e17;text-align:center;width:100%}.icon{font-size:40px;display:grid;place-items:center;margin:auto;background:#ffe5f1;width:90px;height:90px;border-radius:30px}h1{font-size:30px;letter-spacing:-1px}p{line-height:1.8;color:#837b89;font-size:14px}.btn{background:linear-gradient(100deg,#f33e90,#ff84b9);color:#fff;border:0;border-radius:14px;padding:15px 20px;font-weight:800;cursor:pointer;width:100%;margin:8px 0}.secondary{background:#fff1f7;color:#d83d83}button:disabled{opacity:.6}#notice{min-height:20px;font-size:13px;color:#bb3678}</style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23FF358C'/%3E%3Cstop offset='1' stop-color='%23FF83BB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23a)'/%3E%3Cpath d='M32 10 37.8 26.2 54 32 37.8 37.8 32 54 26.2 37.8 10 32 26.2 26.2Z' fill='white'/%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://www.gstatic.com" crossorigin></head><body><main class="panel"><div class="icon">✉️</div><h1>One little step away.</h1><p>Kami mengirimkan tautan verifikasi ke <strong id="email">email Anda</strong>. Buka inbox (dan spam), klik tautannya, lalu kembali ke sini.</p><p id="notice" aria-live="polite"></p><button class="btn" id="check">Saya sudah verifikasi →</button><button class="btn secondary" id="resend">Kirim ulang email</button><button class="btn secondary" id="logout">Keluar dari akun</button></main><script src="config.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script>(()=>{firebase.initializeApp(window.MYTASK_CONFIG.firebase);const auth=firebase.auth(),notice=document.getElementById('notice'),button=document.getElementById('check');let busy=false;auth.onAuthStateChanged(user=>{if(!user)location.replace('index.html');else{document.getElementById('email').textContent=user.email;check(true)}});async function check(silent=false){if(busy)return;busy=true;button.disabled=true;try{const u=auth.currentUser;if(!u)return;await u.reload();if(u.emailVerified){location.replace('main.html');return}if(!silent)notice.textContent='Email belum diverifikasi. Periksa tautan pada email Anda.'}catch(e){notice.textContent=e.message}finally{busy=false;button.disabled=false}}button.onclick=()=>check();document.getElementById('resend').onclick=async()=>{try{await auth.currentUser.sendEmailVerification();notice.textContent='Tautan verifikasi baru telah dikirim.'}catch(e){notice.textContent=e.message}};document.getElementById('logout').onclick=async()=>{await auth.signOut();location.replace('index.html')}})();</script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FF4F9A">
+  <meta name="description" content="Verifikasi alamat email untuk mengamankan workspace MyTask.">
+  <title>Verifikasi Akun — MyTask</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23FF358C'/%3E%3Cstop offset='1' stop-color='%23FF83BB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23a)'/%3E%3Cpath d='M32 10 37.8 26.2 54 32 37.8 37.8 32 54 26.2 37.8 10 32 26.2 26.2Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{font-family:'Plus Jakarta Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#282235;background:#fff;--rose:#ff4f9a;--dark:#292235;--text:#857b89;--line:#f3e1e8}
+    *{box-sizing:border-box}html{min-width:320px}body{margin:0;overflow-x:clip;min-height:100vh;min-height:100dvh}button,a{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.65}button:focus-visible,a:focus-visible{outline:3px solid #ff9ac6;outline-offset:3px}
+    .verify-shell{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);min-height:100vh;min-height:100dvh;max-width:1900px;margin:auto}
+    .story{position:sticky;top:0;height:100vh;height:100dvh;min-height:620px;max-height:1200px;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(38px,5vw,88px);color:#fff;overflow:hidden;isolation:isolate;background:linear-gradient(143deg,#f52f7f 0%,#fe4d96 46%,#ff82b5 100%)}
+    .story:before{content:'';position:absolute;z-index:-1;right:-67%;top:-60%;width:120%;aspect-ratio:1;border-radius:50%;border:1px solid #ffffff4f;box-shadow:0 0 0 90px #ffffff0b,0 0 0 205px #ffffff0b,0 0 0 330px #ffffff0c;pointer-events:none}.story:after{content:'';position:absolute;z-index:-1;width:85%;height:70%;left:-40%;bottom:-30%;border-radius:50%;background:radial-gradient(ellipse,#db116a66,transparent 72%);pointer-events:none}
+    .logo{display:flex;align-items:center;gap:15px;width:max-content;max-width:100%;color:white;text-decoration:none;position:relative;z-index:1}.logo-mark{width:55px;height:55px;flex:none;border-radius:16px;display:grid;place-items:center;background:#ffffff3c;border:1px solid #ffffffb0;box-shadow:inset 0 1px #ffffff64,0 12px 30px #ab1b5c30}.logo-mark svg{width:28px;height:28px;fill:white}.logo strong{font-weight:800;font-size:32px;letter-spacing:-1.75px}
+    .story-main{position:relative;z-index:1;margin:24px 0}.eyebrow{display:flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.25em;font-size:10px}.eyebrow:before{content:'';width:32px;height:1px;background:white}.story h1{font-size:clamp(51px,5.4vw,90px);letter-spacing:-.085em;line-height:1.085;margin:26px 0 25px;font-weight:800;max-width:780px}.story h1 em{font-style:normal;color:#ffe4f0}.story p{font-size:clamp(13px,1.1vw,17px);line-height:2;color:#fff7fb;max-width:580px;margin:0;font-weight:500}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:31px}.pills span{font-size:10px;font-weight:800;border:1px solid #ffffff70;background:#ffffff24;padding:10px 13px;border-radius:12px;backdrop-filter:blur(10px)}.story-foot{display:flex;align-items:center;gap:14px;position:relative;z-index:1;font-size:10px;color:#fffdf0;font-weight:600}.story-foot:before{content:'';width:31px;height:1px;background:white}
+    .verify-right{display:flex;align-items:center;justify-content:center;min-width:0;padding:clamp(24px,5.2vw,84px);background:radial-gradient(ellipse at 97% 48%,#fff2f7 0%,transparent 55%),#fff;position:relative}.verify-content{width:min(510px,100%)}
+    .right-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:54px}.right-top>span:first-child{color:#a7a0aa;letter-spacing:.2em;font-size:10px;font-weight:800}.auth-badge{display:flex;align-items:center;gap:7px;border:1px solid #f1e0e8;border-radius:99px;padding:10px 13px;color:#7c7582;font-size:10px;font-weight:700;background:#fff}.auth-badge svg{width:15px;height:15px;stroke:#16a77b;fill:none;stroke-width:2}
+    .state-icon{width:105px;height:105px;display:grid;place-items:center;border:1px solid #ffd3e4;border-radius:31px;box-shadow:0 0 0 8px #fff6fa,0 14px 35px #e16a9c13;background:linear-gradient(135deg,#fff1f7,#ffe4ef);color:#eb4089;margin-bottom:32px}.state-icon svg{width:49px;height:49px;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.6}
+    .status-label{display:inline-flex;align-items:center;gap:8px;border-radius:8px;background:#fff0f5;color:#d73880;padding:8px 11px;font-size:10px;letter-spacing:.09em;font-weight:800}.status-label:before{content:'';width:6px;height:6px;background:#f04890;border-radius:50%}
+    h2{margin:22px 0 16px;font-size:clamp(32px,3.05vw,46px);letter-spacing:-.075em;line-height:1.2;color:#292333;font-weight:800}#subtitle{font-size:13px;color:#908493;line-height:1.95;margin:0 0 26px}#email{color:#d3337f;overflow-wrap:anywhere;font-weight:800}.message{display:none;padding:12px 15px;border:1px solid #ffcbdf;background:#fff2f8;color:#b33370;border-radius:13px;font-size:11px;line-height:1.75;margin:0 0 15px;font-weight:700}.message.visible{display:block}.message.ok{background:#effcf7;border-color:#b3e9d5;color:#0e775b}
+    .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;width:100%;border-radius:13px;border:1px solid #edcfdd;padding:13px 16px;background:#fff;color:#6d5868;font-size:11.5px;font-weight:800;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s}.btn:hover:not(:disabled){background:#fff8fb;border-color:#efabc9;transform:translateY(-1px)}.btn.primary{background:linear-gradient(105deg,#ef3385,#ff70ac);border-color:#fa5f9c;color:white;box-shadow:0 12px 25px #ed4f9240}.btn.primary:hover:not(:disabled){box-shadow:0 16px 30px #ed4f9250}.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.action-list{display:grid;gap:10px}.info-box{margin-top:25px;display:flex;align-items:flex-start;gap:12px;border:1px solid #f3e2e9;border-radius:14px;padding:15px 16px;color:#9a8e99;font-size:10.5px;line-height:1.8;background:#fff}.info-box svg{flex:none;width:17px;height:17px;stroke:#ec4896;fill:none;stroke-width:1.7;margin-top:1px}
+    .right-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:47px;font-size:10px;color:#b3a6af}.right-foot a{color:#e43b84;font-weight:800;text-decoration:none;white-space:nowrap}.right-foot a:hover{text-decoration:underline}
+    .btn[hidden],.action-list[hidden]{display:none!important}
+    @media(max-width:1100px){.story{padding:clamp(30px,4vw,55px)}.story h1{font-size:clamp(46px,5vw,75px)}.verify-right{padding:30px}}
+    @media(max-width:900px){.verify-shell{grid-template-columns:1fr}.story{height:auto;min-height:0;max-height:none;position:relative;top:auto;padding:25px 24px 31px;border-radius:0 0 26px 26px}.story:before{right:-280px;top:-290px;width:470px;box-shadow:0 0 0 70px #ffffff0b}.logo-mark{width:42px;height:42px;border-radius:12px}.logo-mark svg{width:23px;height:23px}.logo strong{font-size:26px}.story-main{margin:32px 0 6px}.story h1{font-size:clamp(34px,5vw,47px);margin:13px 0 12px}.story p{font-size:12px;line-height:1.7}.pills,.story-foot{display:none}.verify-right{padding:32px 18px 48px}.verify-content{width:min(560px,100%)}.right-top{margin-bottom:35px}.right-foot{margin-top:28px}}
+    @media(max-width:480px){.story{padding:21px 20px 26px}.story-main{margin:24px 0 0}.story h1{font-size:33px}.story p{font-size:11px}.eyebrow{font-size:9px;letter-spacing:.13em}.verify-right{padding:25px 19px 35px}.right-top{margin-bottom:29px}.right-top>span:first-child{font-size:9px;letter-spacing:.1em}.auth-badge{padding:8px 10px;font-size:9px}.state-icon{width:80px;height:80px;border-radius:24px;margin-bottom:24px}.state-icon svg{width:39px;height:39px}.status-label{font-size:9px}h2{font-size:33px;margin:18px 0 12px}#subtitle{font-size:11.5px}.right-foot{font-size:9px}}
+    @media(max-width:355px){.story h1{font-size:29px}.right-top{flex-wrap:wrap}.right-foot{flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div class="verify-shell">
+    <aside class="story" aria-label="MyTask Account Security">
+      <a href="index.html" class="logo" aria-label="Kembali ke MyTask"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 6 38.9 25.1 58 32 38.9 38.9 32 58 25.1 38.9 6 32 25.1 25.1Z"/></svg></span><strong>MyTask<span style="color:#ffe6f0">.</span></strong></a>
+      <section class="story-main">
+        <div class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</div>
+        <h1>Langkah kecil.<br><em>Awal dari hal</em><br>yang besar.</h1>
+        <p>Hanya satu langkah lagi untuk mengamankan ruang produktivitas Anda. Setelah email terverifikasi, tugas, proyek, dan rencana hebat siap menanti.</p>
+        <div class="pills" aria-hidden="true"><span>✦ Aman & personal</span><span>✦ Fokus pada tujuan</span><span>✦ Dirancang untuk harimu</span></div>
+      </section>
+      <div class="story-foot">MYTASK PRODUCTIVITY STUDIO · 2026</div>
+    </aside>
+    <main class="verify-right">
+      <div class="verify-content">
+        <div class="right-top"><span>MYTASK / ACCOUNT SECURITY</span><span class="auth-badge"><svg viewBox="0 0 24 24"><path d="M12 2 20 5v6c0 5-3 8-8 11-5-3-8-6-8-11V5Z"/><path d="m8 12 3 3 5-6"/></svg> Firebase Authentication</span></div>
+        <div class="state-icon" id="statusIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/><path d="m15 17 2 2 4-4"/></svg></div>
+        <div class="status-label" id="statusLabel">MEMERIKSA STATUS</div>
+        <h2 id="headline">Memeriksa verifikasi akun...</h2>
+        <p id="subtitle">Mohon sebentar, kami sedang memeriksa status keamanan akun MyTask Anda.</p>
+        <p class="message" id="notice" aria-live="polite" role="status"></p>
+        <div class="action-list">
+          <button class="btn primary" type="button" id="check"><span id="checkText">Saya sudah verifikasi</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+          <button class="btn" type="button" id="resend">Kirim ulang email verifikasi</button>
+          <button class="btn" type="button" id="logout">Keluar dari akun</button>
+        </div>
+        <div class="info-box"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg><span>Keamanan akun dikelola melalui Firebase Authentication. Jangan bagikan tautan verifikasi atau kode email kepada siapa pun.</span></div>
+        <div class="right-foot"><span>© 2026 MyTask. Your day, elevated.</span><a href="index.html">Kembali ke MyTask ↗</a></div>
+      </div>
+    </main>
+  </div>
+  <script src="config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const $ = id => document.getElementById(id);
+      const timeStart = performance.now();
+      let auth = null, busy = false, actionHandled = false, lastResend = 0;
+      const params = new URLSearchParams(location.search);
+      const oobCode = params.get('oobCode');
+      const hasAction = params.get('mode') === 'verifyEmail' && Boolean(oobCode);
+      const labels = {
+        loading: ['MEMERIKSA STATUS','Memeriksa verifikasi akun...','Kami sedang memeriksa status keamanan akun MyTask Anda.'],
+        pending: ['VERIFIKASI EMAIL DIPERLUKAN','Satu langkah lagi untuk mulai.','Kami telah mengirimkan tautan verifikasi ke email akun Anda. Buka kotak masuk atau folder spam, kemudian klik tautannya.'],
+        success: ['AKUN TELAH DIVERIFIKASI','Email berhasil diverifikasi.','Akun MyTask Anda sudah terverifikasi. Silakan lanjutkan ke workspace produktivitas Anda.'],
+        guest: ['TAUTAN BELUM TERSEDIA','Tautan verifikasi belum ditemukan.','Buka halaman ini melalui tautan verifikasi terbaru dalam email MyTask, atau masuk untuk meminta tautan baru.'],
+        invalid: ['TAUTAN TIDAK DAPAT DIGUNAKAN','Tautan verifikasi tidak valid.','Tautan mungkin kedaluwarsa atau sudah dipakai. Masuk kembali untuk meminta email verifikasi yang baru.']
+      };
+      const errors = {
+        'auth/expired-action-code':'Tautan verifikasi sudah kedaluwarsa. Kirim ulang email verifikasi dari akun Anda.',
+        'auth/invalid-action-code':'Tautan verifikasi tidak valid atau sudah digunakan. Periksa status akun atau kirim tautan baru.',
+        'auth/user-token-expired':'Sesi telah berakhir. Silakan masuk kembali.',
+        'auth/too-many-requests':'Permintaan terlalu sering. Coba lagi beberapa saat.',
+        'auth/network-request-failed':'Tidak dapat terhubung. Periksa jaringan internet Anda.',
+        'auth/unauthorized-domain':'Domain MyTask belum terdaftar dalam Firebase Authorized Domains.'
+      };
+      function notify(message='', ok=false){$('notice').textContent=message;$('notice').classList.toggle('visible',Boolean(message));$('notice').classList.toggle('ok',ok)}
+      function draw(mode){const data=labels[mode];$('statusLabel').textContent=data[0];$('headline').textContent=data[1];$('subtitle').textContent=data[2];$('checkText').textContent=mode==='success'?'Buka dashboard MyTask':mode==='guest'?'Kembali ke halaman masuk':'Saya sudah verifikasi';$('resend').hidden=mode==='success'||mode==='guest';$('logout').hidden=mode==='guest';$('check').hidden=false;if(mode==='invalid')$('resend').hidden=!auth?.currentUser}
+      function setBusy(value){busy=value;['check','resend','logout'].forEach(id=>$(id).disabled=value)}
+      function go(url){window.location.replace(url)}
+      async function checkUser(silent=false){
+        if(busy)return;setBusy(true);if(!silent)notify();
+        try{
+          const user=auth.currentUser;
+          if(!user){draw('guest');return}
+          await user.reload();
+          if(auth.currentUser?.emailVerified){draw('success');if(!silent)notify('Verifikasi telah dikonfirmasi. Anda dapat membuka dashboard.',true)}
+          else{draw('pending');if(!silent)notify('Email belum diverifikasi. Silakan klik tautan dalam email Anda.')}
+        }catch(e){notify(errors[e.code]||e.message||'Gagal memeriksa akun. Coba lagi.')}finally{setBusy(false)}
+      }
+      $('check').addEventListener('click',()=>{if(busy)return;const user=auth?.currentUser;if(!user)return go('index.html');if(user.emailVerified)return go('main.html');checkUser()});
+      $('resend').addEventListener('click',async()=>{
+        if(busy||!auth?.currentUser)return;
+        if(Date.now()-lastResend<45000){notify('Email verifikasi baru saja diminta. Periksa inbox dahulu.');return}
+        setBusy(true);notify();
+        try{await auth.currentUser.sendEmailVerification();lastResend=Date.now();notify('Email verifikasi baru telah dikirim. Periksa juga folder spam.',true)}
+        catch(e){notify(errors[e.code]||e.message||'Gagal mengirim email verifikasi.')}finally{setBusy(false)}
+      });
+      $('logout').addEventListener('click',async()=>{if(busy)return;setBusy(true);try{await auth.signOut();go('index.html')}catch(e){notify(errors[e.code]||e.message||'Gagal keluar dari akun.');setBusy(false)}});
+      try{
+        const cfg=window.MYTASK_CONFIG;
+        if(!window.firebase?.auth||!cfg?.firebase?.apiKey||cfg.firebase.apiKey.startsWith('REPLACE_'))throw Error('Firebase belum dikonfigurasi dengan benar. Periksa config.js.');
+        if(!firebase.apps.length)firebase.initializeApp(cfg.firebase);
+        auth=firebase.auth();
+      }catch(e){draw('guest');notify(e.message);['check','resend','logout'].forEach(id=>$(id).disabled=true);console.error('[MyTask Verify]',e);return}
+      auth.onAuthStateChanged(async user=>{
+        if(hasAction&&!actionHandled){
+          actionHandled=true;setBusy(true);
+          try{await auth.applyActionCode(oobCode);notify('Tautan verifikasi berhasil diterapkan.',true);if(user){try{await user.reload()}catch(e){console.warn('[MyTask Verify] Reload setelah verifikasi:',e?.code||e?.message)}}draw('success')}
+          catch(e){draw('invalid');notify(errors[e.code]||e.message||'Tautan verifikasi tidak dapat digunakan.')}
+          finally{setBusy(false)}
+          console.info(`[MyTask Speed] Verify email action: ${Math.round(performance.now()-timeStart)} ms`);
+          return;
+        }
+        if(!user)draw('guest');
+        else if(user.emailVerified)draw('success');
+        else draw('pending');
+        console.info(`[MyTask Speed] Verify auth ready: ${Math.round(performance.now()-timeStart)} ms`);
+      },e=>{draw('guest');notify(errors[e.code]||e.message||'Gagal membaca status akun.')});
+      window.addEventListener('load',()=>console.info(`[MyTask Speed] Verify page loaded: ${Math.round(performance.now()-timeStart)} ms`));
+    })();
+  </script>
+</body>
+</html>
