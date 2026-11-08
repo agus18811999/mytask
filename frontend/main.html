@@ -662,6 +662,27 @@ body{background:radial-gradient(ellipse at 95% 3%,#ffeaf4 0%,transparent 40%),#f
 @media(prefers-reduced-motion:reduce){.task-collection-track>span{transition:none}}
 
 
+/* MyTask — Weekly Review Date Alignment */
+
+.mt54-weekly .mt55-period-left {
+  align-items: flex-end;
+}
+
+.mt54-weekly .mt55-period-range {
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .mt54-weekly .mt55-period-range {
+    justify-content: flex-start;
+  }
+}
+
 /* MYTASK 3.6 — Distinctive task showcase and Categories/Tags studio. */
 .hero-surface.art-taskstudio,.hero-surface.art-collectionstudio{padding:19px 21px;gap:11px;min-height:265px;justify-content:space-between;overflow:hidden;background:linear-gradient(137deg,#ffffff30 0%,#ffffff18 45%,#ffffff29 100%);border-color:#ffffff9c}
 .taskstudio-top,.taskstudio-bottom,.collectionstudio-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#fff;min-width:0;font-weight:800;letter-spacing:.11em;font-size:8px}
