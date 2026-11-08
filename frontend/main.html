@@ -662,27 +662,6 @@ body{background:radial-gradient(ellipse at 95% 3%,#ffeaf4 0%,transparent 40%),#f
 @media(prefers-reduced-motion:reduce){.task-collection-track>span{transition:none}}
 
 
-/* MyTask — Weekly Review Date Alignment */
-
-.mt54-weekly .mt55-period-left {
-  align-items: flex-end;
-}
-
-.mt54-weekly .mt55-period-range {
-  box-sizing: border-box;
-  min-height: 42px;
-  padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 480px) {
-  .mt54-weekly .mt55-period-range {
-    justify-content: flex-start;
-  }
-}
-
 /* MYTASK 3.6 — Distinctive task showcase and Categories/Tags studio. */
 .hero-surface.art-taskstudio,.hero-surface.art-collectionstudio{padding:19px 21px;gap:11px;min-height:265px;justify-content:space-between;overflow:hidden;background:linear-gradient(137deg,#ffffff30 0%,#ffffff18 45%,#ffffff29 100%);border-color:#ffffff9c}
 .taskstudio-top,.taskstudio-bottom,.collectionstudio-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#fff;min-width:0;font-weight:800;letter-spacing:.11em;font-size:8px}
@@ -1949,6 +1928,27 @@ body{background:radial-gradient(ellipse at 95% 3%,#ffeaf4 0%,transparent 40%),#f
 @media(max-width:760px){.mt54-insights .mt58-signal-grid{grid-template-columns:1fr}.mt54-insights .mt58-surface{padding:18px;border-radius:22px}.mt54-insights .mt58-section-header{gap:11px;margin-bottom:16px}.mt54-insights .mt58-heading h2{font-size:20px!important}.mt54-insights .mt58-signal{padding:15px;border-radius:19px}}
 @media(max-width:440px){.mt54-insights .mt58-signal-top{gap:8px}.mt54-insights .mt58-status{font-size:8px;padding:6px 8px}.mt54-insights .mt58-action-row{flex-wrap:wrap}.mt54-insights .mt58-action-row .mt54-btn{width:100%}.mt54-insights .mt58-method{grid-template-columns:43px minmax(0,1fr);padding:13px}.mt54-insights .mt58-method-top{gap:6px}.mt54-insights .mt58-summary-chip{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.mt54-insights .mt58-signal{transition:none}}
+
+
+/* MyTask 5.8.1 — Weekly Review: sejajarkan periode dengan input tanggal */
+.mt54-weekly .mt55-period-left {
+  align-items: flex-end;
+}
+
+.mt54-weekly .mt55-period-range {
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .mt54-weekly .mt55-period-range {
+    justify-content: flex-start;
+  }
+}
 
 </style></head><body class="app-booting"><div class="app"><aside class="sidebar" id="sidebar"><div class="logo"><span>✦</span>MyTask</div><div id="nav"></div><div class="profile-card"><div class="avatar" id="avatar">M</div><div style="min-width:0"><strong id="sidebarName" class="truncate" style="display:block">MyTask User</strong><small id="sidebarEmail">Menyinkronkan...</small></div></div></aside><div class="mobile-shade" id="shade"></div><div class="workspace"><header class="topbar"><button class="btn icon menu-btn" id="menu" aria-label="Buka navigasi">☰</button><div class="top-title" id="pageTitle">Overview<small id="dateLabel"></small></div><label class="search">⌕ <input id="globalSearch" type="search" placeholder="Cari task atau proyek..." aria-label="Cari task"></label><button class="btn icon" id="refresh" aria-label="Segarkan">↻</button><span class="sync-pill" id="syncPill" aria-live="polite"><i></i><span id="syncText">Menyiapkan</span></span><button class="btn primary" id="quickAdd">＋ Tambah Task</button><button class="btn icon" id="notificationButton" aria-label="Notifikasi">♧</button><button type="button" class="header-mini-avatar" id="headerMiniAvatar" aria-label="Buka profil MyTask">M</button></header><div id="loadbar" class="loading hide"></div><main class="content" id="content" aria-live="polite" aria-busy="true" data-skeleton-for="overview"><div class="mytask-skeleton" role="status" aria-label="Sedang menyiapkan data MyTask"><span class="my-sk-sr">Menyiapkan dashboard MyTask, mohon tunggu hingga data tersinkronkan.</span><section class="my-sk-hero" aria-label="Menyiapkan dashboard"><div class="my-sk-copy"><span class="my-sk-tag"><span class="my-sk-pulse"></span> MYTASK • PERSONAL PRODUCTIVITY STUDIO</span><h1>Ruang produktivitas Anda<br>sedang disiapkan.</h1><p>Menyiapkan tugas, jadwal, dan insight terbaru dengan aman. Dashboard akan tampil begitu data tersedia.</p><div class="my-sk-hero-foot"><span class="my-sk-foot-label">✦ MYTASK STUDIO</span><span class="my-sk-foot-label">•</span><span class="my-sk-foot-label">SECURE SYNC</span></div></div><div class="my-sk-glass" aria-hidden="true"><div class="my-sk-glass-head"><span>PRODUCTIVITY OVERVIEW</span><span>✦</span></div><div><span class="my-sk-shine white heading medium"></span><div style="height:12px"></div><span class="my-sk-shine white wide"></span><div style="height:9px"></div><span class="my-sk-shine white short"></span></div><div class="my-sk-glass-foot"><span class="my-sk-shine white medium"></span><span class="my-sk-shine white wide"></span></div></div></section><div class="my-sk-stats" aria-hidden="true"><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div></div><div class="my-sk-panels"><section class="my-sk-panel" aria-hidden="true"><div class="my-sk-panel-heading"><div class="my-sk-panel-title"><span class="my-sk-shine medium"></span><span class="my-sk-shine short"></span></div><span class="my-sk-mini-button"></span></div><div class="my-sk-bars"><span class="my-sk-bar" style="height:28%"></span><span class="my-sk-bar" style="height:46%"></span><span class="my-sk-bar" style="height:35%"></span><span class="my-sk-bar" style="height:72%"></span><span class="my-sk-bar" style="height:51%"></span><span class="my-sk-bar" style="height:65%"></span><span class="my-sk-bar" style="height:40%"></span><span class="my-sk-bar" style="height:86%"></span><span class="my-sk-bar" style="height:60%"></span></div></section><section class="my-sk-panel" aria-hidden="true"><div class="my-sk-panel-heading"><div class="my-sk-panel-title"><span class="my-sk-shine medium"></span><span class="my-sk-shine short"></span></div><span class="my-sk-mini-button"></span></div><div class="my-sk-rows"><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div></div></section></div></div></main><footer class="mytask-footer" style="margin:0 30px 25px"><span>© MyTask Productivity · Your day, elevated.</span><span>Crafted for focus, finished with care ✦</span></footer></div></div><div id="modalHost"></div><div class="toast-wrap" id="toasts" aria-live="polite"></div>
 <script src="config.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script>
