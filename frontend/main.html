@@ -2123,6 +2123,26 @@ body{background:radial-gradient(ellipse at 95% 3%,#ffeaf4 0%,transparent 40%),#f
 @media(max-width:480px){.mt60{gap:14px!important}.mt60 .mt59-panel,.mt60 .mt59-control-panel,.mt60 .mt59-preview-card{padding:17px;border-radius:21px}.mt60 .mt59-hero h1{font-size:27px}.mt60 .mt59-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.mt60 .mt59-metric{padding:13px;min-height:105px;border-radius:17px}.mt60 .mt59-metric strong{font-size:23px}.mt60 .mt59-metric small{font-size:9px}.mt60 .mt59-metric span{font-size:10px}.mt60 .mt59-head{gap:11px;margin-bottom:14px}.mt60 .mt59-head h2{font-size:19px}.mt60-settings-grid{grid-template-columns:1fr;gap:10px}.mt60-settings-action{grid-column:auto}.mt60 .mt59-count{font-size:9px;text-align:left}.mt60-stat-main strong{font-size:43px}.mt60-chart-top{align-items:flex-start}.mt60 .mt59-comparison{max-width:none}.mt60 .mt59-chart-svg{height:125px}.mt60 .mt59-day-labels{font-size:9px}.mt60 .mt59-canvas-shell{height:340px}.mt60 .mt59-canvas-shell canvas{max-height:315px}.mt60 .mt59-png-actions{grid-template-columns:1fr}.mt60 .mt59-status-tile{padding:10px;min-height:109px}.mt60 .mt59-status-tile strong{font-size:23px}.mt60 .mt59-status-tile span{font-size:8.5px}}
 @media(prefers-reduced-motion:reduce){.mt60-group-card{transition:none}}
 
+
+/* MyTask 6.1 - PNG Report preview: true Feed/Story proportions, without clipping */
+.mt60 .mt59-canvas-shell.mt61-preview-frame{
+  height:auto;min-height:0;max-height:none;
+  padding:18px 12px;border-radius:20px;
+  display:flex;justify-content:center;align-items:center;
+  overflow:hidden;background:linear-gradient(145deg,#231726 0%,#16272d 100%);
+}
+.mt60 .mt61-preview-frame canvas{
+  display:block;flex:none;width:100%;height:auto!important;max-height:none!important;
+  object-fit:contain;border-radius:11px;box-shadow:0 16px 35px rgba(0,0,0,.34);
+}
+.mt60 .mt61-preview-frame[data-mt59-format="feed"] canvas{max-width:400px;aspect-ratio:4/5}
+.mt60 .mt61-preview-frame[data-mt59-format="story"] canvas{max-width:325px;aspect-ratio:9/16}
+@media(max-width:480px){
+ .mt60 .mt59-canvas-shell.mt61-preview-frame{padding:12px 9px}
+ .mt60 .mt61-preview-frame[data-mt59-format="feed"] canvas{max-width:100%}
+ .mt60 .mt61-preview-frame[data-mt59-format="story"] canvas{max-width:min(100%,290px)}
+}
+
 </style></head><body class="app-booting"><div class="app"><aside class="sidebar" id="sidebar"><div class="logo"><span>✦</span>MyTask</div><div id="nav"></div><div class="profile-card"><div class="avatar" id="avatar">M</div><div style="min-width:0"><strong id="sidebarName" class="truncate" style="display:block">MyTask User</strong><small id="sidebarEmail">Menyinkronkan...</small></div></div></aside><div class="mobile-shade" id="shade"></div><div class="workspace"><header class="topbar"><button class="btn icon menu-btn" id="menu" aria-label="Buka navigasi">☰</button><div class="top-title" id="pageTitle">Overview<small id="dateLabel"></small></div><label class="search">⌕ <input id="globalSearch" type="search" placeholder="Cari task atau proyek..." aria-label="Cari task"></label><button class="btn icon" id="refresh" aria-label="Segarkan">↻</button><span class="sync-pill" id="syncPill" aria-live="polite"><i></i><span id="syncText">Menyiapkan</span></span><button class="btn primary" id="quickAdd">＋ Tambah Task</button><button class="btn icon" id="notificationButton" aria-label="Notifikasi">♧</button><button type="button" class="header-mini-avatar" id="headerMiniAvatar" aria-label="Buka profil MyTask">M</button></header><div id="loadbar" class="loading hide"></div><main class="content" id="content" aria-live="polite" aria-busy="true" data-skeleton-for="overview"><div class="mytask-skeleton" role="status" aria-label="Sedang menyiapkan data MyTask"><span class="my-sk-sr">Menyiapkan dashboard MyTask, mohon tunggu hingga data tersinkronkan.</span><section class="my-sk-hero" aria-label="Menyiapkan dashboard"><div class="my-sk-copy"><span class="my-sk-tag"><span class="my-sk-pulse"></span> MYTASK • PERSONAL PRODUCTIVITY STUDIO</span><h1>Ruang produktivitas Anda<br>sedang disiapkan.</h1><p>Menyiapkan tugas, jadwal, dan insight terbaru dengan aman. Dashboard akan tampil begitu data tersedia.</p><div class="my-sk-hero-foot"><span class="my-sk-foot-label">✦ MYTASK STUDIO</span><span class="my-sk-foot-label">•</span><span class="my-sk-foot-label">SECURE SYNC</span></div></div><div class="my-sk-glass" aria-hidden="true"><div class="my-sk-glass-head"><span>PRODUCTIVITY OVERVIEW</span><span>✦</span></div><div><span class="my-sk-shine white heading medium"></span><div style="height:12px"></div><span class="my-sk-shine white wide"></span><div style="height:9px"></div><span class="my-sk-shine white short"></span></div><div class="my-sk-glass-foot"><span class="my-sk-shine white medium"></span><span class="my-sk-shine white wide"></span></div></div></section><div class="my-sk-stats" aria-hidden="true"><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div><div class="my-sk-stat"><div class="my-sk-stat-head"><span class="my-sk-shine medium"></span><span class="my-sk-stat-icon"></span></div><span class="my-sk-shine my-sk-stat-value"></span><span class="my-sk-shine short my-sk-stat-foot"></span></div></div><div class="my-sk-panels"><section class="my-sk-panel" aria-hidden="true"><div class="my-sk-panel-heading"><div class="my-sk-panel-title"><span class="my-sk-shine medium"></span><span class="my-sk-shine short"></span></div><span class="my-sk-mini-button"></span></div><div class="my-sk-bars"><span class="my-sk-bar" style="height:28%"></span><span class="my-sk-bar" style="height:46%"></span><span class="my-sk-bar" style="height:35%"></span><span class="my-sk-bar" style="height:72%"></span><span class="my-sk-bar" style="height:51%"></span><span class="my-sk-bar" style="height:65%"></span><span class="my-sk-bar" style="height:40%"></span><span class="my-sk-bar" style="height:86%"></span><span class="my-sk-bar" style="height:60%"></span></div></section><section class="my-sk-panel" aria-hidden="true"><div class="my-sk-panel-heading"><div class="my-sk-panel-title"><span class="my-sk-shine medium"></span><span class="my-sk-shine short"></span></div><span class="my-sk-mini-button"></span></div><div class="my-sk-rows"><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div><div class="my-sk-row"><span class="my-sk-square"></span><span class="my-sk-row-text"><span class="my-sk-shine wide"></span><span class="my-sk-shine short"></span></span><span class="my-sk-row-end"></span></div></div></section></div></div></main><footer class="mytask-footer" style="margin:0 30px 25px"><span>© MyTask Productivity · Your day, elevated.</span><span>Crafted for focus, finished with care ✦</span></footer></div></div><div id="modalHost"></div><div class="toast-wrap" id="toasts" aria-live="polite"></div>
 <script src="config.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script>
 (()=>{'use strict';
@@ -3416,7 +3436,7 @@ function mt59Page(){
    <div class="mt59-report-hero"><div class="mt60-chart-top"><div class="mt60-chart-primary"><span class="mt59-report-kicker">✦ AKTIVITAS DOMINAN</span><div class="mt60-stat-main"><strong>${topPercent}%</strong><span>${esc(d.top?.name||'Belum ada aktivitas')}</span></div></div><span class="mt59-comparison">${esc(compare)}</span></div><div class="mt60-chart-plot">${mt59ChartSvg(d)}<div class="mt59-day-labels">${dayLabels}</div></div>${d.total===0?'<p class="mt59-chart-empty">Belum ada sesi fokus atau Time Log dalam periode ini.</p>':''}<div class="mt60-chart-footer"><span>◷ Total ${esc(mt54Minutes(d.total))}</span><span>${d.rows.length} catatan aktivitas</span></div></div>
    <div class="mt59-notebox"><span>ⓘ</span><span><b>${topPercent}%</b> menunjukkan proporsi durasi aktivitas teratas, bukan persentase keberhasilan task.</span></div>
   </section>
-  <aside class="mt59-preview-card mt60-preview" aria-labelledby="mt60-preview-title"><div class="mt59-preview-caption"><div><span class="mt59-heading-code">SHAREABLE REPORT</span><strong id="mt60-preview-title">Live PNG Report</strong><span>Pratinjau gambar dari data MyTask Anda.</span></div><span class="mt59-count">PNG · HD</span></div><div class="mt59-canvas-shell"><canvas id="mt59ExportCanvas" width="1080" height="1350" role="img" aria-label="Pratinjau report aktivitas berformat PNG"></canvas></div><div class="mt59-png-actions"><label class="mt59-control"><span>Ukuran gambar</span><select data-mt59-select="format" aria-label="Format gambar"><option value="feed" ${MT59.format==='feed'?'selected':''}>Feed / Posting (1080 × 1350)</option><option value="story" ${MT59.format==='story'?'selected':''}>Story (1080 × 1920)</option></select></label><button class="mt59-btn primary" data-mt59-action="export">↓ Export laporan PNG</button></div><p class="mt59-small">Dibuat langsung di browser Anda. Tidak dikirim ke layanan desain pihak ketiga.</p></aside>
+  <aside class="mt59-preview-card mt60-preview" aria-labelledby="mt60-preview-title"><div class="mt59-preview-caption"><div><span class="mt59-heading-code">SHAREABLE REPORT</span><strong id="mt60-preview-title">Live PNG Report</strong><span>Pratinjau gambar dari data MyTask Anda.</span></div><span class="mt59-count">PNG · HD</span></div><div class="mt59-canvas-shell mt61-preview-frame" data-mt59-format="${MT59.format}"><canvas id="mt59ExportCanvas" width="1080" height="1350" role="img" aria-label="Pratinjau report aktivitas berformat PNG"></canvas></div><div class="mt59-png-actions"><label class="mt59-control"><span>Ukuran gambar</span><select data-mt59-select="format" aria-label="Format gambar"><option value="feed" ${MT59.format==='feed'?'selected':''}>Feed / Posting (1080 × 1350)</option><option value="story" ${MT59.format==='story'?'selected':''}>Story (1080 × 1920)</option></select></label><button class="mt59-btn primary" data-mt59-action="export">↓ Export laporan PNG</button></div><p class="mt59-small">Dibuat langsung di browser Anda. Tidak dikirim ke layanan desain pihak ketiga.</p></aside>
  </div>
 
  <section class="mt59-panel mt60-section mt60-breakdown" aria-labelledby="mt60-breakdown-title"><div class="mt59-head"><div><span class="mt59-heading-code">03 / ACTIVITY BREAKDOWN</span><h2 id="mt60-breakdown-title">Distribusi berdasarkan ${esc(groupLabel.toLowerCase())}</h2><p>Detail kontribusi durasi setiap kelompok pada periode laporan.</p></div><span class="mt59-count">${d.groups.length} kelompok</span></div><div class="mt60-breakdown-grid">${rowHtml}</div><div class="mt59-category-footer"><span>${d.groups.length} kategori / kelompok tercatat</span><strong>${esc(mt54Minutes(d.total))} total durasi</strong></div></section>
@@ -3430,49 +3450,137 @@ function mt59Page(){
 
 function mt59Round(c,x,y,w,h,r){c.beginPath();if(typeof c.roundRect==='function')c.roundRect(x,y,w,h,r);else{const q=Math.min(r,w/2,h/2);c.moveTo(x+q,y);c.lineTo(x+w-q,y);c.quadraticCurveTo(x+w,y,x+w,y+q);c.lineTo(x+w,y+h-q);c.quadraticCurveTo(x+w,y+h,x+w-q,y+h);c.lineTo(x+q,y+h);c.quadraticCurveTo(x,y+h,x,y+h-q);c.lineTo(x,y+q);c.quadraticCurveTo(x,y,x+q,y);c.closePath()}}
 function mt59PosterDraw(){
- const canvas=$('mt59ExportCanvas');if(!canvas||state.module!=='allocation')return;
- const d=mt59Data(),w=1080,h=MT59.format==='story'?1920:1350;canvas.width=w;canvas.height=h;
+ const canvas=$('mt59ExportCanvas');
+ if(!canvas||state.module!=='allocation')return;
+ const d=mt59Data(),story=MT59.format==='story',W=1080,H=story?1920:1350;
+ // Canvas is the exact file that gets downloaded: the preview and PNG cannot diverge.
+ canvas.width=W;canvas.height=H;
  const c=canvas.getContext('2d');if(!c)return;
- const rr=(x,y,W,H,r,fill,stroke)=>{mt59Round(c,x,y,W,H,r);if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.lineWidth=2;c.stroke()}};
- const text=(s,x,y,size=28,color='#fff',weight=700,limit=900)=>{let content=String(s??'');c.font=`${weight} ${size}px Inter, system-ui, sans-serif`;while(content.length>2&&c.measureText(content).width>limit)content=content.slice(0,-2)+'…';c.fillStyle=color;c.fillText(content,x,y)};
- const grad=(a,b,c1,c2)=>{const v=c.createLinearGradient(a,b,c1,c2);v.addColorStop(0,'#ff44a0');v.addColorStop(.52,'#d96dcb');v.addColorStop(1,'#26ead1');return v};
- const bg=c.createLinearGradient(0,0,900,h);bg.addColorStop(0,'#200e20');bg.addColorStop(.5,'#1a1527');bg.addColorStop(1,'#063a3c');c.fillStyle=bg;c.fillRect(0,0,w,h);
- // neon ambient lighting
- for(const [x,y,r,color] of [[100,0,420,'#e82f7430'],[1080,170,380,'#00ead02b'],[0,h-100,290,'#e82f6c29']]){const g=c.createRadialGradient(x,y,3,x,y,r);g.addColorStop(0,color);g.addColorStop(1,'#00000000');c.fillStyle=g;c.fillRect(x-r,y-r,r*2,r*2)}
- c.font='900 34px Inter, system-ui, sans-serif';rr(55,55,78,78,24,grad(55,55,133,133));text('✦',75,111,42,'#fff',800);text('MyTask',150,110,47,'#fff',900);text('TASK ACTIVITY ALLOCATION',57,201,38,'#fff',900);text('Pembagian waktu dari aktivitas yang tercatat',59,239,21,'#bcb5c9',500);
- const mainY=MT59.format==='story'?286:272, mainH=MT59.format==='story'?700:570;
- rr(53,mainY,974,mainH,42,'#ffffff0d','#ff74b46b');
- const sh=c.createLinearGradient(65,mainY,980,mainY+mainH);sh.addColorStop(0,'#f5388126');sh.addColorStop(1,'#08d6c416');rr(57,mainY+4,966,mainH-8,40,sh);
- text('✧  AKTIVITAS TERBESAR',85,mainY+62,23,'#ffd3e7',900);text(d.periodLabel,85,mainY+101,22,'#c7b3c5',550);
- c.fillStyle=grad(70,0,550,0);c.font='900 116px Inter,system-ui,sans-serif';c.fillText(`${d.top?.percent||0}%`,82,mainY+233);
- text(d.top?.name||'Belum ada aktivitas',88,mainY+281,27,'#ffffff',850,850);
- text(d.delta!==null?`${d.delta>=0?'+':''}${Math.round(d.delta)} pp vs periode lalu`:'Belum ada perbandingan',88,mainY+323,21,d.delta===null?'#beaac2':'#54e7cd',650);
- const mini=[['TOTAL WAKTU',mt54Minutes(d.total)],['SESI',String(d.rows.length)],['TASK SELESAI',String(d.taskDone)],['FOKUS',mt54Minutes(d.focus)]];
- const minY=mainY+348;mini.forEach(([key,value],i)=>{const x=83+i*241;rr(x,minY,222,86,16,'#ffffff0c','#ffffff28');text(key,x+14,minY+28,15,'#dfb8d2',800,200);text(value,x+14,minY+63,25,'#fff',850,200)});
- const topY=mainY+mainH-122,lowY=mainY+mainH-43,vals=d.trend,max=Math.max(1,...vals),plotLeft=94,plotW=887;
- c.beginPath();vals.forEach((value,i)=>{const x=plotLeft+plotW*i/6,y=lowY-(value/max)*(lowY-topY);i?c.lineTo(x,y):c.moveTo(x,y)});
- c.strokeStyle=grad(94,0,980,0);c.lineWidth=6;c.lineJoin='round';c.lineCap='round';c.stroke();
- vals.forEach((v,i)=>{const x=plotLeft+plotW*i/6,y=lowY-(v/max)*(lowY-topY);c.beginPath();c.arc(x,y,7,0,Math.PI*2);c.fillStyle=v?'#77f6e3':'#b67a9f';c.fill()});
- d.trendDays.forEach((day,i)=>{const label=new Date(day+'T12:00:00Z').toLocaleDateString('id-ID',{timeZone:'UTC',weekday:'short'});text(label,82+i*147,mainY+mainH-14,15,'#d6c7d6',650,130)});
- const secondY=mainY+mainH+24,secondH=MT59.format==='story'?515:306;
- rr(53,secondY,974,secondH,40,'#ffffff0d','#77e9dc56');text('ALOKASI AKTIVITAS',83,secondY+55,23,'#fff',850);text('Berdasarkan '+{category:'kategori',project:'project',source:'sumber pencatatan'}[MT59.group],83,secondY+89,19,'#bcb5c9',500);
- // Ring diagram from real group proportions
- const centerX=MT59.format==='story'?245:241,centerY=secondY+(MT59.format==='story'?265:175),radius=115;
- c.lineWidth=33;c.beginPath();c.arc(centerX,centerY,radius,0,Math.PI*2);c.strokeStyle='#e5d7e724';c.stroke();
- let angle=-Math.PI/2;d.groups.forEach(g=>{const sweep=d.total?2*Math.PI*g.minutes/d.total:0;c.beginPath();c.arc(centerX,centerY,radius,angle,angle+sweep);c.strokeStyle=g.color;c.lineWidth=33;c.stroke();angle+=sweep});
- text(mt54Minutes(d.total),centerX-86,centerY+8,38,'#fff',900,176);text('total tercatat',centerX-77,centerY+37,17,'#b5a6bb',550);
- const listX=426,firstRow=secondY+(MT59.format==='story'?145:134),rowGap=MT59.format==='story'?68:41;
- const list=d.groups.slice(0,MT59.format==='story'?5:4);if(!list.length){text('Belum ada durasi tercatat',listX,secondY+215,22,'#fff',700,540);text('Catat waktu agar grafik terisi.',listX,secondY+247,18,'#b9b0c5',550,540)}
- list.forEach((g,i)=>{const y=firstRow+i*rowGap;rr(listX,y-16,18,18,8,g.color);text(g.name,listX+30,y,MT59.format==='story'?22:19,'#f9f4fc',750,390);text(`${g.percent}%`,913,y,20,'#fff',850,90);rr(listX+30,y+10,500,7,5,'#f9e9f625');rr(listX+30,y+10,500*g.minutes/Math.max(1,d.total),7,5,g.color)});
- const insightY=secondY+secondH+24,insightH=MT59.format==='story'?244:96;
- rr(53,insightY,974,insightH,35,'#ffffff11','#f598c655');
- text('✦  MOST ACTIVE CATEGORY',83,insightY+43,MT59.format==='story'?22:17,'#f8b7dc',850);text(d.top?.name||'Belum tersedia',83,insightY+(MT59.format==='story'?102:77),MT59.format==='story'?35:24,'#fff',850,800);
- if(MT59.format==='story'){
-  text('MOST ACTIVE DAY',83,insightY+159,22,'#8bf6e2',850);
-  text(d.best?new Date(d.best+'T12:00:00Z').toLocaleDateString('id-ID',{weekday:'long',timeZone:'UTC'}):'Belum tersedia',83,insightY+203,30,'#fff',800);
+ const C={white:'#fffafc',muted:'#c8bccd',pink:'#ff59a6',teal:'#65e6d7',stroke:'#ffffff25'};
+ const fillRounded=(x,y,w,h,r,fill,stroke)=>{
+  mt59Round(c,x,y,w,h,r);
+  if(fill){c.fillStyle=fill;c.fill()}
+  if(stroke){c.lineWidth=2;c.strokeStyle=stroke;c.stroke()}
+ };
+ const measure=(s,maxWidth,font)=>{
+  c.font=font;let v=String(s??'');
+  if(c.measureText(v).width<=maxWidth)return v;
+  while(v.length>1&&c.measureText(v+'…').width>maxWidth)v=v.slice(0,-1);
+  return v+'…';
+ };
+ const txt=(s,x,y,size=24,color=C.white,weight=700,maxWidth=Infinity,align='left')=>{
+  const font=`${weight} ${size}px Inter, system-ui, sans-serif`;
+  c.save();c.textAlign=align;c.textBaseline='alphabetic';c.font=font;
+  c.fillStyle=color;c.fillText(measure(s,maxWidth,font),x,y);c.restore();
+ };
+ const gradient=(x,y,x2,y2,colors)=>{
+  const g=c.createLinearGradient(x,y,x2,y2);
+  colors.forEach(([stop,color])=>g.addColorStop(stop,color));return g;
+ };
+ const outer=gradient(0,0,W,H,[[0,'#211528'],[.55,'#291e35'],[1,'#10383e']]);
+ c.fillStyle=outer;c.fillRect(0,0,W,H);
+ // Restricted glow never changes layout or displaces components.
+ for(const [x,y,r,col] of [[1020,125,370,'rgba(255,75,155,.19)'],[50,H-150,350,'rgba(38,219,207,.1)']]){
+  const g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,col);g.addColorStop(1,'rgba(0,0,0,0)');
+  c.fillStyle=g;c.fillRect(x-r,y-r,r*2,r*2);
  }
- const footY=h-(MT59.format==='story'?73:25);text('MyTask  •  Private productivity report',57,footY,19,'#d9a6c9',650);text(new Date().toLocaleDateString('id-ID',{timeZone:workspaceTimezone(),day:'numeric',month:'short',year:'numeric'}),821,footY,17,'#d9a6c9',600,210);
+ const mainFill=gradient(70,310,1010,710,[[0,'#493044'],[1,'#2a3547']]);
+ const subtle=gradient(70,820,1000,1600,[[0,'#ffffff12'],[1,'#ffffff07']]);
+ const pill=(textValue,x,y,w)=>{
+  fillRounded(x,y,w,47,23,'#ff8ab520','#ff9cc64d');
+  txt(textValue,x+w/2,y+31,17,'#ffd0e6',800,w-20,'center');
+ };
+ const dateText=d.periodLabel||'Periode aktivitas';
+ // 01 - header / identity: same alignment and safe zone for Feed and Story.
+ fillRounded(70,72,67,67,20,gradient(70,72,137,139,[[0,'#ff439b'],[1,'#ff9ac2']]));
+ txt('✦',103,117,37,'#fff',800,60,'center');
+ txt('MyTask',155,123,43,C.white,900,420);
+ pill(story?'STORY · 9:16':'FEED · 4:5',story?775:789,81,story?228:215);
+ txt('YOUR ACTIVITY RECAP',73,217,34,C.white,900,940);
+ txt('Waktu yang tercatat. Progres yang terasa.',73,260,22,C.muted,550,910);
+ // 02 - hero: prominent but never overlaps metrics.
+ const heroY=story?310:296,heroH=story?344:304;
+ fillRounded(70,heroY,940,heroH,33,mainFill,'#ffb5d84a');
+ txt('AKTIVITAS DOMINAN',101,heroY+56,20,'#ffd1e7',850,700);
+ txt(`${d.top?.percent||0}%`,101,heroY+189,story?124:119,'#ff82bf',900,780);
+ txt(d.top?.name||'Belum ada aktivitas',105,heroY+242,31,C.white,850,850);
+ txt(dateText,105,heroY+281,20,C.muted,550,840);
+ // 03 - four metric tiles use the same grid, no accidental overflow.
+ const minis=[['TOTAL WAKTU',mt54Minutes(d.total)],['CATATAN',String(d.rows.length)],['TASK SELESAI',String(d.taskDone)],['FOCUS',mt54Minutes(d.focus)]];
+ const metricY=story?691:629,metricW=223,metricH=story?138:130,metricGap=16;
+ minis.forEach(([key,val],i)=>{
+  const x=70+i*(metricW+metricGap);
+  fillRounded(x,metricY,metricW,metricH,21,'#ffffff13','#ffffff20');
+  txt(key,x+17,metricY+40,16,'#f6c6dd',800,metricW-34);
+  txt(val,x+17,metricY+91,36,C.white,900,metricW-34);
+ });
+ // 04 - trend plot in its own dedicated card.
+ const trendY=story?859:788,trendH=story?315:202;
+ fillRounded(70,trendY,940,trendH,29,subtle,C.stroke);
+ txt('TREN AKTIVITAS · 7 HARI',101,trendY+49,20,C.white,850,740);
+ const vals=d.trend||[0,0,0,0,0,0,0],days=d.trendDays||[],hasActivity=vals.some(v=>Number(v)>0);
+ const maxVal=Math.max(1,...vals),left=116,right=962;
+ const plotTop=trendY+(story?112:94),plotBottom=trendY+(story?235:144);
+ c.save();c.strokeStyle='#ffffff27';c.lineWidth=2;c.beginPath();c.moveTo(left,plotBottom);c.lineTo(right,plotBottom);c.stroke();
+ if(hasActivity){
+  const points=vals.map((v,i)=>({x:left+(right-left)*i/6,y:plotBottom-(Number(v)||0)/maxVal*(plotBottom-plotTop)}));
+  c.beginPath();points.forEach((p,i)=>i?c.lineTo(p.x,p.y):c.moveTo(p.x,p.y));
+  c.lineTo(right,plotBottom);c.lineTo(left,plotBottom);c.closePath();
+  c.fillStyle=gradient(left,plotTop,right,plotBottom,[[0,'#ff5c9c37'],[1,'#4cead71b']]);c.fill();
+  c.beginPath();points.forEach((p,i)=>i?c.lineTo(p.x,p.y):c.moveTo(p.x,p.y));
+  c.lineJoin='round';c.lineCap='round';c.lineWidth=6;
+  c.strokeStyle=gradient(left,0,right,0,[[0,'#ff6db2'],[1,'#65ead7']]);c.stroke();
+  points.forEach(p=>{c.beginPath();c.arc(p.x,p.y,6,0,Math.PI*2);c.fillStyle=C.white;c.fill()});
+ }else{
+  c.setLineDash([8,9]);c.beginPath();c.moveTo(left,plotBottom);c.lineTo(right,plotBottom);
+  c.strokeStyle='#d2b7cc';c.stroke();c.setLineDash([]);
+  txt('Belum ada aktivitas tercatat',540,trendY+(story?190:128),19,C.muted,600,760,'center');
+ }
+ c.restore();
+ days.forEach((date,i)=>{
+  const day=new Date(date+'T12:00:00Z').toLocaleDateString('id-ID',{weekday:'short',timeZone:'UTC'});
+  txt(day,left+(right-left)*i/6,trendY+trendH-22,17,C.muted,650,93,'center');
+ });
+ // 05 - allocation card: ring entirely inside bounds in *both* formats.
+ const allocY=story?1206:1018,allocH=story?424:227;
+ fillRounded(70,allocY,940,allocH,30,'#ffffff11',C.stroke);
+ txt('PEMBAGIAN WAKTU',101,allocY+50,21,C.white,850,800);
+ const cx=story?285:204,cy=allocY+(story?244:141),radius=story?112:64,lineW=story?28:17;
+ c.save();c.lineWidth=lineW;c.strokeStyle='#ffffff24';c.beginPath();c.arc(cx,cy,radius,0,Math.PI*2);c.stroke();
+ let a=-Math.PI/2;
+ (d.groups||[]).forEach(g=>{
+  const sweep=d.total>0?Math.PI*2*Math.max(0,Number(g.minutes)||0)/d.total:0;
+  if(sweep>.0001){c.beginPath();c.arc(cx,cy,radius,a,a+sweep);c.strokeStyle=g.color||C.pink;c.stroke()}
+  a+=sweep;
+ });
+ c.restore();
+ txt(mt54Minutes(d.total),cx,cy+7,story?34:23,C.white,850,story?168:120,'center');
+ txt('TOTAL DURASI',cx,cy+(story?36:27),story?16:12,C.muted,750,150,'center');
+ const list=(d.groups||[]).slice(0,story?5:3);
+ const legendX=story?486:337,legendY=allocY+(story?125:94),legendGap=story?56:46;
+ if(!list.length){txt('Belum ada alokasi tercatat',legendX,legendY+38,23,C.muted,700,550)}
+ list.forEach((g,i)=>{
+  const y=legendY+i*legendGap;
+  fillRounded(legendX,y-12,19,19,6,g.color||C.pink);
+  txt(g.name,legendX+34,y+4,story?23:20,C.white,750,story?330:300);
+  txt(`${g.percent}%`,962,y+4,story?22:20,C.white,850,90,'right');
+  if(story){fillRounded(legendX+35,y+16,435,6,3,'#ffffff29');fillRounded(legendX+35,y+16,435*Math.min(1,g.minutes/Math.max(1,d.total)),6,3,g.color||C.pink)}
+ });
+ // Story uses the extra height for a readable additional takeaway, not stretched cards.
+ if(story){
+  const noteY=1660;
+  fillRounded(70,noteY,940,122,28,'#ffffff12','#ffffff24');
+  txt('HARI PALING AKTIF',103,noteY+44,18,'#8ef4e2',850,830);
+  const bestDay=d.best?new Date(d.best+'T12:00:00Z').toLocaleDateString('id-ID',{weekday:'long',timeZone:'UTC'}):'Belum tersedia';
+  txt(bestDay,103,noteY+94,31,C.white,850,840);
+ }
+ // Footer: persistent padding and no contact with panels.
+ c.strokeStyle='#ffffff26';c.lineWidth=2;c.beginPath();c.moveTo(73,H-91);c.lineTo(1008,H-91);c.stroke();
+ txt('MyTask  ·  Private productivity report',74,H-46,18,C.muted,650,710);
+ const stamp=new Date().toLocaleDateString('id-ID',{timeZone:workspaceTimezone(),day:'numeric',month:'short',year:'numeric'});
+ txt(stamp,1008,H-46,18,C.muted,650,210,'right');
 }
+
 async function mt59Export(button){
  let canvas=$('mt59ExportCanvas');if(!canvas)return notify('Pratinjau PNG belum siap.','error');button.disabled=true;const old=button.textContent;button.textContent='◷ Membuat PNG...';
  try{mt59PosterDraw();const blob=await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Browser tidak dapat membuat gambar PNG.')),'image/png'));
